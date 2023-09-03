@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutAddItem"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddFamous.AddFamousPlace">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvHeadingPlace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Add Famous Place"
+            android:textColor="#2196F3"
+            android:textSize="30sp" />
+
+        <EditText
+            android:id="@+id/etPlaceNamePlace"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#2196F3"
+            android:hint="Enter Famous Place Name" />
+
+        <EditText
+            android:id="@+id/etAboutPlace"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#2196F3"
+            android:hint="About Famous Place" />
+
+
+        <Button
+            android:id="@+id/btnUploadImagePlace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="#2196F3"
+            android:text="Add Image"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvImgNamePreviewPlace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="18sp"
+            android:text="Image Name" />
+
+        <TextView
+            android:id="@+id/tvAddressPlace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Address"
+            android:textColor="#2196F3"
+            android:textSize="22sp" />
+
+        <EditText
+            android:id="@+id/etAreaPlace"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#2196F3"
+            android:hint="Area" />
+
+        <EditText
+            android:id="@+id/etAdditionalPlace"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#2196F3"
+            android:hint="Additional Address Info" />
+
+        <Spinner
+            android:id="@+id/spSelectCityNamePlace"
+            android:layout_width="match_parent"
+            android:layout_marginTop="16dp"
+            android:layout_height="50dp"
+            android:padding="8dp"
+            android:backgroundTint="#2196F3"
+            android:spinnerMode="dropdown" />
+
+        <TextView
+            android:id="@+id/etStatePlace"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="20sp"
+            android:padding="8dp"
+            android:backgroundTint="#2196F3"
+            android:text="Gujarat" />
+
+        <EditText
+            android:id="@+id/etPostalCodePlace"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#2196F3"
+            android:hint="Postal Code"
+            android:inputType="textPostalAddress" />
+
+        <TextView
+            android:id="@+id/tvContactInfoPlace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="Contact Information for Place"
+            android:textColor="#2196F3"
+            android:textSize="22sp" />
+
+        <EditText
+            android:id="@+id/etContactNumberPlace"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#2196F3"
+            android:hint="Enter Contact Number"
+            android:inputType="number"
+            android:maxLength="10"/>
+
+        <EditText
+            android:id="@+id/etEmailPlace"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#2196F3"
+            android:hint="Enter Email Address"
+            android:inputType="textEmailAddress"/>
+
+        <EditText
+            android:id="@+id/etWebsitePlace"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#2196F3"
+            android:hint="Website URL"
+            android:inputType="textUri"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnSubmitPlace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginEnd="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="#118F16"
+                android:text="Add Famous Place"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/cancelButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/black"
+                android:text="Cancel"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,83 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base theme -->
+<!--    <style name="Theme.Food1" parent="Theme.Material3.Light.NoActionBar">-->
+<!--        <item name="colorPrimary">@color/colorPrimary</item>-->
+<!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+<!--        <item name="colorAccent">@color/colorAccent</item>-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash; Night Theme&ndash;&gt;-->
+<!--    <style name="Theme.Food1.Night" parent="Theme.Material3.Dark.NoActionBar">-->
+<!--        <item name="colorPrimary">@color/colorPrimaryNight</item>-->
+<!--        <item name="colorPrimaryDark">@color/colorPrimaryDarkNight</item>-->
+<!--        <item name="colorAccent">@color/colorAccentNight</item>-->
+<!--    </style>-->
+
+
+<!--    &lt;!&ndash; Light mode theme. &ndash;&gt;-->
+<!--    <style name="Theme.Food1.Light" parent="Theme.MaterialComponents.DayNight.NoActionBar">-->
+<!--        &lt;!&ndash; Primary brand color. &ndash;&gt;-->
+<!--        <item name="colorPrimary">#673AB7</item>-->
+<!--        <item name="colorPrimaryVariant">#5E2D96</item>-->
+<!--        <item name="colorOnPrimary">#ffffff</item>-->
+<!--        &lt;!&ndash; Secondary brand color. &ndash;&gt;-->
+<!--        <item name="colorSecondary">@color/teal_200</item>-->
+<!--        <item name="colorSecondaryVariant">#04B5A3</item>-->
+<!--        <item name="colorOnSecondary">#ffffff</item>-->
+<!--        &lt;!&ndash; Status bar color. &ndash;&gt;-->
+<!--        <item name="android:statusBarColor">#673AB7</item>-->
+<!--        <item name="android:itemBackground">#FFFFFF</item>-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash; Dark mode theme. &ndash;&gt;-->
+<!--    <style name="Theme.Food1.Dark" parent="Theme.MaterialComponents.DayNight.NoActionBar">-->
+<!--        &lt;!&ndash; Primary brand color. &ndash;&gt;-->
+<!--        <item name="colorPrimary">#000000</item>-->
+<!--        <item name="colorPrimaryVariant">#424242</item>-->
+<!--        <item name="colorOnPrimary">#000000</item>-->
+<!--        &lt;!&ndash; Secondary brand color. &ndash;&gt;-->
+<!--        <item name="colorSecondary">#009688</item>-->
+<!--        <item name="colorSecondaryVariant">#00796B</item>-->
+<!--        <item name="colorOnSecondary">#ffffff</item>-->
+<!--        &lt;!&ndash; Status bar color. &ndash;&gt;-->
+<!--        <item name="android:statusBarColor">#000000</item>-->
+<!--        <item name="android:itemBackground">#000000</item>-->
+<!--    </style>-->
+
+<!--    <style name="Theme.Food1" parent="Theme.Material3.Light">-->
+<!--        &lt;!&ndash; Primary brand color. &ndash;&gt;-->
+<!--        <item name="colorPrimary">#0CF3E1</item>-->
+<!--        &lt;!&ndash; Primary brand color on light theme. &ndash;&gt;-->
+<!--        <item name="colorOnPrimary">#334B48</item>-->
+<!--        &lt;!&ndash; Primary brand color on dark theme. &ndash;&gt;-->
+<!--        <item name="colorPrimaryDark">#ffffff</item>-->
+<!--        &lt;!&ndash; Secondary brand color. &ndash;&gt;-->
+<!--        <item name="colorSecondary">#96B1AC</item>-->
+<!--    </style>-->
+
+    <style name="Theme.Food1" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+    </style>
+
+    <style name="Theme.Food1.Night" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimaryNight</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkNight</item>
+        <item name="colorAccent">@color/colorAccentNight</item>
+        <item name="android:textColorSecondary">@color/textColorPrimaryDark</item>
+    </style>
+
+<!--    <style name="Theme.Food1.Night" parent="Theme.Material3.Dark">-->
+<!--        &lt;!&ndash; Primary brand color. &ndash;&gt;-->
+<!--        <item name="colorPrimary">#0CF3E1</item>-->
+<!--        &lt;!&ndash; Primary brand color on light theme. &ndash;&gt;-->
+<!--        <item name="colorOnPrimary">#334B48</item>-->
+<!--        &lt;!&ndash; Primary brand color on dark theme. &ndash;&gt;-->
+<!--        <item name="colorPrimaryDark">#ffffff</item>-->
+<!--        &lt;!&ndash; Secondary brand color. &ndash;&gt;-->
+<!--        <item name="colorSecondary">#96B1AC</item>-->
+<!--    </style>-->
+
+</resources>

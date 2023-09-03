@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/login_emailContainer"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:errorEnabled="true"
+            app:helperText="Required"
+            app:helperTextTextColor="@color/design_default_color_error">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/login_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            app:counterMaxLength="16"
+            android:id="@+id/login_passwordContainer"
+            android:layout_margin="8dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            app:counterEnabled="true"
+            android:layout_width="match_parent"
+            app:helperText="Required"
+            android:layout_height="wrap_content"
+            app:helperTextTextColor="@color/design_default_color_error"
+            app:errorEnabled="true"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_height="wrap_content"
+                android:id="@+id/login_password"
+                android:layout_width="match_parent"
+                android:maxLength="16"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:lines="1"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            app:counterEnabled="true"
+            android:id="@+id/login_phoneContainer"
+            app:counterMaxLength="10"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_margin="8dp"
+            android:layout_width="match_parent"
+            app:errorEnabled="true"
+            android:layout_height="wrap_content"
+            app:helperText="Required"
+            app:helperTextTextColor="@color/design_default_color_error">
+
+            <com.google.android.material.textfield.TextInputEditText
+
+                android:layout_width="match_parent"
+                android:id="@+id/login_phone"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:hint="Phone Number"
+                android:lines="1"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.button.MaterialButton
+            android:layout_marginTop="60dp"
+            android:layout_width="290dp"
+            android:layout_margin="4dp"
+            android:text="Login"
+            android:layout_gravity="center"
+            android:layout_height="62dp"
+            android:id="@+id/login_button"/>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

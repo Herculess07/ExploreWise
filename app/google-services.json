@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "9330130561",
+    "project_id": "food-project-395207",
+    "storage_bucket": "food-project-395207.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:9330130561:android:2d67c6df76c397bdbcd780",
+        "android_client_info": {
+          "package_name": "com.learning.food1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "9330130561-d2o2isg3d0rvksivshk2jlpt4rd4gbg8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5Xo3fOfn99rRrM56fEddvsBSIawlYGKg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "9330130561-d2o2isg3d0rvksivshk2jlpt4rd4gbg8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

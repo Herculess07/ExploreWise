@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BottomNavFragments.HomeFragment"
+    android:id="@+id/rootGroupFragmentHome">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!--Search view for filtering list view-->
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/homeSearchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/search_bar_design"
+            android:iconifiedByDefault="false"
+            android:focusable="true"
+            android:padding="6dp"
+            android:hint="Search"
+            android:elevation="2dp"
+            android:outlineAmbientShadowColor="@color/grey">
+
+        </androidx.appcompat.widget.SearchView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/home_card_view_design"
+            tools:itemCount="20"/>
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">Food 1</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="title_activity_maps_fragment">MapsFragment</string>
+    <string name="google_maps_api_key">AIzaSyD5Xo3fOfn99rRrM56fEddvsBSIawlYGKg</string>
+    <string name="title_activity_temp_bottom">tempBottom</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="signup">Register</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t Have an Account? </string>
+    <string name="already_have_an_account_login">Already Have an Account? </string>
+    <string name="required">Required</string>
+
+    <string-array name="cities">
+        <item>Ahmedabad</item>
+        <item>Amreli</item>
+        <item>Anand</item>
+        <item>Aravalli</item>
+        <item>Banaskantha</item>
+        <item>Bharuch</item>
+        <item>Bhavnagar</item>
+        <item>Botad</item>
+        <item>Chhota Udaipur</item>
+        <item>Dahod</item>
+        <item>Dang</item>
+        <item>Devbhumi Dwarka</item>
+        <item>Gandhinagar</item>
+        <item>Gir Somnath</item>
+        <item>Jamnagar</item>
+        <item>Junagarh</item>
+        <item>Kheda</item>
+        <item>Kutch</item>
+        <item>Mahisagar</item>
+        <item>Mehsana</item>
+        <item>Morbi</item>
+        <item>Narmada</item>
+        <item>Navsari</item>
+        <item>Panchmahal</item>
+        <item>Patan</item>
+        <item>Porbandar</item>
+        <item>Rajkot</item>
+        <item>Sabarkantha</item>
+        <item>Surat</item>
+        <item>Surendranagar</item>
+        <item>Tapi</item>
+        <item>Vadodara</item>
+    </string-array>
+</resources>
