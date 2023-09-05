@@ -1,7 +1,6 @@
 package com.learning.food1.Model
 
-data class BookmarkRecyclerVModel(
+data class FamousOfCityModel(
     val image: Int,
     val text: String,
-) {
-}
+) : java.io.Serializable

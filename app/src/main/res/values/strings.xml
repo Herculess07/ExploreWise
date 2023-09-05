@@ -29,6 +29,24 @@
     <string name="don_t_have_an_account_sign_up">Don\'t Have an Account? </string>
     <string name="already_have_an_account_login">Already Have an Account? </string>
     <string name="required">Required</string>
+    <string name="enter_devotional_place_name">Enter Devotional Place Name</string>
+    <string name="add_devotional_place">Add Devotional Place</string>
+    <string name="about">About e.g. 120 Years old Ambe Ma Temple</string>
+    <string name="add_image">Add Image</string>
+    <string name="image_name">Image Name</string>
+    <string name="image_cont_des">Uploaded Image</string>
+    <string name="address">Address</string>
+    <string name="area">Area</string>
+    <string name="additional_address_info">Additional Address Info</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="gujarat">Gujarat</string>
+    <string name="postal_code">Postal Code</string>
+    <string name="contact_information_for_place">Contact Information for Place</string>
+    <string name="enter_contact_number">Enter Contact Number</string>
+    <string name="enter_email_address">Enter Email Address</string>
+    <string name="website_url">Website URL</string>
+    <string name="cancel">Cancel</string>
 
     <string-array name="cities">
         <item>Ahmedabad</item>

@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp">
 
@@ -18,58 +18,61 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Add Devotional Place"
-            android:textColor="#2196F3"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/add_devotional_place"
+            android:textColor="@color/teal_200"
             android:textSize="30sp" />
 
-        <AutoCompleteTextView
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="hello"/>
-
-        <EditText
-            android:id="@+id/etPlaceNameDevotional"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#2196F3"
-            android:hint="Enter Devotional Place Name" />
-
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etContPlaceNameDevotional"
             style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="10dp"
             app:errorEnabled="true"
-            app:helperText="required">
+            app:helperText="required"
+            app:helperTextTextColor="@color/design_default_color_error">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPlaceNameDevotional"
                 style="@style/MaterialAlertDialog.Material3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter Devotional Place Name"
+                android:hint="@string/enter_devotional_place_name"
                 android:textSize="18sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-
-        <EditText
-            android:id="@+id/etAboutDevotional"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etContAboutDevotional"
+            style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#2196F3"
-            android:hint="About e.g. 120 Years old Ambe Ma Temple" />
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            app:errorEnabled="true"
+            app:helperText="required"
+            app:helperTextTextColor="@color/design_default_color_error">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etAboutDevotional"
+                style="@style/MaterialAlertDialog.Material3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/about"
+                android:inputType="textMultiLine"
+                android:lines="3"
+                android:textSize="18sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/btnUploadImageDevotional"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_gravity="center"
             android:layout_marginTop="5dp"
-            android:backgroundTint="#2196F3"
-            android:text="Add Image"
-            android:textColor="@android:color/white"
+            android:text="@string/add_image"
+            android:textColor="@color/grey"
             android:textSize="18sp" />
 
         <TextView
@@ -77,103 +80,206 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Image Name"
+            android:text="@string/image_name"
             android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/imageViewAddDevotional"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@color/grey"
+            android:src="@drawable/logo"
+            android:contentDescription="@string/image_cont_des" />
 
         <TextView
             android:id="@+id/tvAddressDevotional"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:text="Address"
-            android:textColor="#2196F3"
+            android:layout_margin="10dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/address"
             android:textSize="22sp" />
 
-        <EditText
-            android:id="@+id/etAreaDevotional"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etContAreaDevotional"
+            style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#2196F3"
-            android:hint="Area" />
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            app:errorEnabled="true"
+            app:helperText="required"
+            app:helperTextTextColor="@color/design_default_color_error">
 
-        <EditText
-            android:id="@+id/etAdditionalDevotional"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#2196F3"
-            android:hint="Additional Address Info" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etAreaDevotional"
+                style="@style/MaterialAlertDialog.Material3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/area"
+                android:inputType="textMultiLine"
+                android:lines="2"
+                android:textSize="18sp" />
 
-        <Spinner
-            android:id="@+id/spSelectCityNameDevotional"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#2196F3"
-            android:padding="8dp"
-            android:spinnerMode="dropdown" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/etStateDevotional"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etContAdditionalDevotional"
+            style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#2196F3"
-            android:padding="8dp"
-            android:text="Gujarat"
-            android:textSize="20sp" />
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            app:errorEnabled="true">
 
-        <EditText
-            android:id="@+id/etPostalCodeDevotional"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etAdditionalDevotional"
+                style="@style/MaterialAlertDialog.Material3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/additional_address_info"
+                android:lines="2"
+                android:textSize="18sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/spContSelectCityNameDevotional"
+            style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#2196F3"
-            android:hint="Postal Code"
-            android:inputType="textPostalAddress" />
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            app:errorEnabled="true"
+            app:helperText="required"
+            app:helperTextTextColor="@color/design_default_color_error">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/spSelectCityNameDevotional"
+                style="@style/MaterialAlertDialog.Material3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/city"
+                android:inputType="text"
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etContStateDevotional"
+            style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            app:errorEnabled="true"
+            app:helperText="required"
+            app:helperTextTextColor="@color/design_default_color_error">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etStateDevotional"
+                style="@style/MaterialAlertDialog.Material3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/state"
+                android:inputType="text"
+                android:text="@string/gujarat"
+                android:textSize="18sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etContPostalCodeDevotional"
+            style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            app:errorEnabled="true"
+            app:helperText="required"
+            app:helperTextTextColor="@color/design_default_color_error">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPostalCodeDevotional"
+                style="@style/MaterialAlertDialog.Material3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/postal_code"
+                android:inputType="textPostalAddress"
+                android:textSize="18sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/tvContactInfoDevotional"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:text="Contact Information for Place"
-            android:textColor="#2196F3"
+            android:layout_margin="10dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/contact_information_for_place"
+            android:textColor="@color/textColorPrimary"
             android:textSize="22sp" />
 
-        <EditText
-            android:id="@+id/etContactNumberDevotional"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etContContactNumberDevotional"
+            style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#2196F3"
-            android:hint="Enter Contact Number"
-            android:inputType="number"
-            android:maxLength="10" />
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            app:counterMaxLength="10"
+            app:errorEnabled="true">
 
-        <EditText
-            android:id="@+id/etEmailDevotional"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#2196F3"
-            android:hint="Enter Email Address"
-            android:inputType="textEmailAddress" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etContactNumberDevotional"
+                style="@style/MaterialAlertDialog.Material3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_contact_number"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:textSize="18sp" />
 
-        <EditText
-            android:id="@+id/etWebsiteDevotional"
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etContEmailDevotional"
+            style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#2196F3"
-            android:hint="Website URL"
-            android:inputType="textUri" />
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            app:errorEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etEmailDevotional"
+                style="@style/MaterialAlertDialog.Material3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/enter_email_address"
+                android:inputType="textEmailAddress"
+                android:textSize="18sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etContWebsiteDevotional"
+            style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            app:errorEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etWebsiteDevotional"
+                style="@style/MaterialAlertDialog.Material3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/website_url"
+                android:inputType="textUri"
+                android:textSize="18sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_margin="10dp"
             android:orientation="horizontal">
 
             <Button
@@ -183,8 +289,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginEnd="10dp"
                 android:layout_weight="1"
-                android:backgroundTint="#118F16"
-                android:text="Add Devotional Place"
+                android:text="@string/add_devotional_place"
+                android:textColor="@color/grey"
                 android:textSize="18sp" />
 
             <Button
@@ -194,8 +300,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/black"
-                android:text="Cancel"
+                android:backgroundTint="@color/red"
+                android:text="@string/cancel"
                 android:textSize="18sp" />
 
         </LinearLayout>
