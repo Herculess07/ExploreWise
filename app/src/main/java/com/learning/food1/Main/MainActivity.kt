@@ -4,7 +4,9 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -24,15 +26,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
 
-    companion object {
-        private const val CAMERA_PERMISSION_CODE = 100
-        private const val STORAGE_PERMISSION_CODE = 101
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES); //For night mode theme
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES) //For day mode theme
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES) //For night mode theme
 
         setContentView(R.layout.activity_main)
 
@@ -48,58 +44,8 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         replaceFragment(HomeFragment())
         fragment()
-        checkPermission(
-            android.Manifest.permission.CAMERA,
-            CAMERA_PERMISSION_CODE
-        )
+        userPermissionAccess()
 
-        checkPermission(
-            android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            STORAGE_PERMISSION_CODE
-        )
-    }
-
-    private fun checkPermission(permission: String, requestCode: Int) {
-        if (ContextCompat.checkSelfPermission(
-                this@MainActivity,
-                permission
-            ) == PackageManager.PERMISSION_DENIED
-        ) {
-            // Requesting the permission
-            ActivityCompat.requestPermissions(this@MainActivity, arrayOf(permission), requestCode)
-        }
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<String>,
-        grantResults: IntArray,
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == CAMERA_PERMISSION_CODE) {
-            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(this@MainActivity, "Camera Permission Granted", Toast.LENGTH_SHORT)
-                    .show()
-            }
-        } else if (requestCode == STORAGE_PERMISSION_CODE) {
-            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(this@MainActivity, "Storage Permission Granted", Toast.LENGTH_SHORT)
-                    .show()
-            }
-        }
-    }
-
-
-    private fun checkLoginStatus() {
-        // Check if the user is already signed in.
-        if (auth.currentUser != null) {
-            // The user is already signed in, so redirect them to the home screen.
-        } else {
-            // The user is not signed in, so show the login screen.
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
     }
 
     private fun fragment() {
@@ -127,4 +73,62 @@ class MainActivity : AppCompatActivity() {
         fragmentTransaction.commit()
     }
 
+    private fun checkLoginStatus() {
+        // Check if the user is already signed in.
+        if (auth.currentUser != null) {
+            // The user is already signed in, so redirect them to the home screen.
+        } else {
+            // The user is not signed in, so show the login screen.
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+    }
+
+    private fun userPermissionAccess() {
+
+        val permissionRequest = registerForActivityResult(
+            ActivityResultContracts.RequestMultiplePermissions()
+        ) { permissions ->
+            when {
+                permissions.getOrDefault(android.Manifest.permission.CAMERA, false) -> {
+                    Log.i("Permission", "Camera Permission Granted")
+                }
+
+                permissions.getOrDefault(
+                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE, false
+                ) -> {
+                    Log.i("Permission", "Storage Permission Granted")
+                }
+
+                permissions.getOrDefault(
+                    android.Manifest.permission.ACCESS_COARSE_LOCATION, false
+                ) -> {
+                    // Only approximate location access granted.
+                    Log.i("Permission", "Approximate Location Permission Granted")
+                }
+
+                permissions.getOrDefault(
+                    android.Manifest.permission.ACCESS_COARSE_LOCATION, false
+                ) -> {
+                    // Only approximate location access granted.
+                    Log.i("Permission", "Precise Location Permission Granted")
+                }
+
+                else -> {
+                    // No location access granted.
+                    Log.i("Permission", "No Permission Granted")
+                }
+            }
+        }
+
+        permissionRequest.launch(
+            arrayOf(
+                android.Manifest.permission.CAMERA,
+                android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                android.Manifest.permission.ACCESS_FINE_LOCATION,
+                android.Manifest.permission.ACCESS_COARSE_LOCATION
+            )
+        )
+    }
 }

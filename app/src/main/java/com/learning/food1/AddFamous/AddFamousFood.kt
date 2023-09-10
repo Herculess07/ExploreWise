@@ -16,17 +16,6 @@ class AddFamousFood : AppCompatActivity() {
         bindingAddFood = ActivityAddFamousFoodBinding.inflate(layoutInflater)
         setContentView(bindingAddFood.root)
 
-        // spinner for cities
-        // access spinner
-        val options = resources.getStringArray(R.array.cities)
-        val spinner = bindingAddFood.spSelectCityNameFood
-        // Start Spinner
-        if (spinner != null) {
-            val adapter = ArrayAdapter(this, R.layout.spinner_layout, options)
-            spinner.adapter = adapter
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-
-        }
 
     }
 
