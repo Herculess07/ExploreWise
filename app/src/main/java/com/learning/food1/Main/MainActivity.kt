@@ -1,16 +1,15 @@
 package com.learning.food1.Main
 
 import android.content.Intent
-import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.learning.food1.BottomNavFragments.AddFragment
 import com.learning.food1.BottomNavFragments.BookmarkFragment
@@ -23,20 +22,24 @@ import com.learning.food1.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var b: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
-
+    private lateinit var fab: FloatingActionButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES) //For night mode theme
 
         setContentView(R.layout.activity_main)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        b = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(b.root)
 
         auth = FirebaseAuth.getInstance()
         checkLoginStatus()
+
+        b.botNavView.background
+        b.botNavView.menu.getItem(2).isEnabled = false
+
 
     }
 
@@ -45,23 +48,32 @@ class MainActivity : AppCompatActivity() {
         replaceFragment(HomeFragment())
         fragment()
         userPermissionAccess()
-
+        fabClick()
     }
 
     private fun fragment() {
         // Change fragment on click bottom navigation bar icon
-        binding.bottomNavigationView.setOnItemSelectedListener {
+        b.botNavView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.btmIconHome -> replaceFragment(HomeFragment())
                 R.id.btmIconLocation -> replaceFragment(MapsFragment())
-                R.id.btmIconAddFood -> replaceFragment(AddFragment())
                 R.id.btmIconBookmark -> replaceFragment(BookmarkFragment())
                 R.id.btmIconUserSettings -> replaceFragment(SettingsFragment())
 
                 else -> {
+                    replaceFragment(HomeFragment())
                 }
             }
             true
+        }
+    }
+
+    fun fabClick() {
+        b.fab.setOnClickListener { view ->
+//            Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
+//                .setAction("Action", null)
+//                .show()
+            replaceFragment(AddFragment())
         }
     }
 

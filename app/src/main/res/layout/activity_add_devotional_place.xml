@@ -25,55 +25,33 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etContPlaceNameDevotional"
-            style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            app:errorEnabled="true"
-            app:helperText="required"
-            app:helperTextTextColor="@color/design_default_color_error">
+            style="@style/container_err">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPlaceNameDevotional"
-                style="@style/MaterialAlertDialog.Material3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/enter_devotional_place_name"
-                android:textSize="18sp" />
+                style="@style/basic_view"
+                android:hint="@string/enter_devotional_place_name" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etContAboutDevotional"
-            style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            app:errorEnabled="true"
-            app:helperText="required"
-            app:helperTextTextColor="@color/design_default_color_error">
+            style="@style/container_err">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etAboutDevotional"
-                style="@style/MaterialAlertDialog.Material3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/basic_view"
                 android:hint="@string/about"
-                android:inputType="textMultiLine"
-                android:lines="3"
-                android:textSize="18sp" />
+                android:inputType="textMultiLine" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/btnUploadImageDevotional"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
+            style="@style/button"
             android:text="@string/add_image"
             android:textColor="@color/grey"
-            android:textSize="18sp" />
+            />
 
         <TextView
             android:id="@+id/tvImgNamePreviewDevotional"
@@ -90,8 +68,8 @@
             android:layout_gravity="center"
             android:layout_margin="10dp"
             android:background="@color/grey"
-            android:src="@drawable/logo"
-            android:contentDescription="@string/image_cont_des" />
+            android:contentDescription="@string/image_cont_des"
+            android:src="@drawable/logo" />
 
         <TextView
             android:id="@+id/tvAddressDevotional"
@@ -104,106 +82,62 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etContAreaDevotional"
-            style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            app:errorEnabled="true"
-            app:helperText="required"
-            app:helperTextTextColor="@color/design_default_color_error">
+            style="@style/container_err">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etAreaDevotional"
-                style="@style/MaterialAlertDialog.Material3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/basic_view"
                 android:hint="@string/area"
-                android:inputType="textMultiLine"
-                android:lines="2"
-                android:textSize="18sp" />
+                android:inputType="textMultiLine" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etContAdditionalDevotional"
-            style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            app:errorEnabled="true">
+            style="@style/container">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etAdditionalDevotional"
-                style="@style/MaterialAlertDialog.Material3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/basic_view"
                 android:hint="@string/additional_address_info"
-                android:lines="2"
-                android:textSize="18sp" />
+                android:lines="2" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/spContSelectCityNameDevotional"
-            style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            app:errorEnabled="true"
-            app:helperText="required"
-            app:helperTextTextColor="@color/design_default_color_error">
+            style="@style/container_err">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/spSelectCityNameDevotional"
-                style="@style/MaterialAlertDialog.Material3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/basic_view"
                 android:hint="@string/city"
-                android:inputType="text"
-                android:textSize="18sp" />
+                android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etContStateDevotional"
-            style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            app:errorEnabled="true"
-            app:helperText="required"
-            app:helperTextTextColor="@color/design_default_color_error">
+            style="@style/container_err">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etStateDevotional"
-                style="@style/MaterialAlertDialog.Material3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/basic_view"
                 android:hint="@string/state"
                 android:inputType="text"
-                android:text="@string/gujarat"
-                android:textSize="18sp" />
+                android:text="@string/gujarat" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etContPostalCodeDevotional"
-            style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            app:errorEnabled="true"
-            app:helperText="required"
-            app:helperTextTextColor="@color/design_default_color_error">
+            style="@style/container_err">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPostalCodeDevotional"
-                style="@style/MaterialAlertDialog.Material3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/basic_view"
                 android:hint="@string/postal_code"
-                android:inputType="textPostalAddress"
-                android:textSize="18sp" />
+                android:inputType="textPostalAddress" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -219,38 +153,25 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etContContactNumberDevotional"
-            style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            app:counterMaxLength="10"
-            app:errorEnabled="true">
+            style="@style/container"
+            app:counterMaxLength="10">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etContactNumberDevotional"
-                style="@style/MaterialAlertDialog.Material3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/basic_view"
                 android:hint="@string/enter_contact_number"
                 android:inputType="phone"
-                android:maxLength="10"
-                android:textSize="18sp" />
+                android:maxLength="10" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etContEmailDevotional"
-            style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            app:errorEnabled="true">
+            style="@style/container">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etEmailDevotional"
-                style="@style/MaterialAlertDialog.Material3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/basic_view"
                 android:hint="@string/enter_email_address"
                 android:inputType="textEmailAddress"
                 android:textSize="18sp" />
@@ -259,17 +180,11 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etContWebsiteDevotional"
-            style="Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp"
-            app:errorEnabled="true">
+            style="@style/container">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etWebsiteDevotional"
-                style="@style/MaterialAlertDialog.Material3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/basic_view"
                 android:hint="@string/website_url"
                 android:inputType="textUri"
                 android:textSize="18sp" />
@@ -284,25 +199,16 @@
 
             <Button
                 android:id="@+id/btnSubmitDevotional"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginEnd="10dp"
-                android:layout_weight="1"
+                style="@style/button"
                 android:text="@string/add_devotional_place"
                 android:textColor="@color/grey"
-                android:textSize="18sp" />
+                 />
 
             <Button
                 android:id="@+id/btnCancelDevotional"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="10dp"
-                android:layout_weight="1"
+                style="@style/button"
                 android:backgroundTint="@color/red"
-                android:text="@string/cancel"
-                android:textSize="18sp" />
+                android:text="@string/cancel" />
 
         </LinearLayout>
 

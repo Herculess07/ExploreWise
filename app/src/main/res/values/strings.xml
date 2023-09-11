@@ -47,6 +47,11 @@
     <string name="enter_email_address">Enter Email Address</string>
     <string name="website_url">Website URL</string>
     <string name="cancel">Cancel</string>
+    <string name="fab">fab</string>
+    <string name="home">Home</string>
+    <string name="location">Location</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="settings">Settings</string>
 
     <string-array name="cities">
         <item>Ahmedabad</item>
