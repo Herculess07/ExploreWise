@@ -14,50 +14,26 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="#0CF3E1"
-        app:titleTextColor="@color/textColorPrimary"
         app:navigationIcon="@drawable/baseline_arrow_back_24"
-        app:title="Add Item" />
+        app:title="Add Item"
+        app:titleTextColor="@color/textColorPrimary" />
 
     <Button
         android:id="@+id/btnAddPlace"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="80dp"
-        android:paddingLeft="30dp"
-        android:paddingTop="15dp"
-        android:paddingRight="30dp"
-        android:paddingBottom="15dp"
-        android:text="Add Famous Place"
-        android:textColor="@color/textColorPrimary"
-        android:textSize="22sp" />
+        style="@style/button2"
+        android:layout_marginBottom="55dp"
+        android:text="@string/add_famous_place" />
 
     <Button
         android:id="@+id/btnAddDevotionalPlace"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:paddingLeft="30dp"
-        android:paddingTop="15dp"
-        android:paddingRight="30dp"
-        android:paddingBottom="15dp"
-        android:text="Add Devotional Place"
-        android:textColor="@color/textColorPrimary"
-        android:textSize="22sp" />
+        style="@style/button2"
+        android:text="@string/add_devotional_place" />
 
     <Button
         android:id="@+id/btnAddFood"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="80dp"
-        android:paddingLeft="30dp"
-        android:paddingTop="15dp"
-        android:paddingRight="30dp"
-        android:paddingBottom="15dp"
-        android:text="Add Famous Food"
-        android:textColor="@color/textColorPrimary"
-        android:textSize="22sp" />
+        style="@style/button2"
+        android:layout_marginTop="55dp"
+        android:text="@string/add_famous_food" />
 
 
 </FrameLayout>

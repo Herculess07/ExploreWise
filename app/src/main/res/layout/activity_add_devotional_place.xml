@@ -50,8 +50,7 @@
             android:id="@+id/btnUploadImageDevotional"
             style="@style/button"
             android:text="@string/add_image"
-            android:textColor="@color/grey"
-            />
+            android:textColor="@color/grey" />
 
         <TextView
             android:id="@+id/tvImgNamePreviewDevotional"
@@ -69,7 +68,7 @@
             android:layout_margin="10dp"
             android:background="@color/grey"
             android:contentDescription="@string/image_cont_des"
-            android:src="@drawable/logo" />
+            android:src="@drawable/logo"/>
 
         <TextView
             android:id="@+id/tvAddressDevotional"
@@ -141,6 +140,13 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <fragment
+            android:id="@+id/fragment_tiny_map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="250dp" />
+
+
         <TextView
             android:id="@+id/tvContactInfoDevotional"
             android:layout_width="wrap_content"
@@ -201,8 +207,7 @@
                 android:id="@+id/btnSubmitDevotional"
                 style="@style/button"
                 android:text="@string/add_devotional_place"
-                android:textColor="@color/grey"
-                 />
+                android:textColor="@color/grey" />
 
             <Button
                 android:id="@+id/btnCancelDevotional"

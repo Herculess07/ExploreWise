@@ -23,11 +23,14 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.learning.food1.Main.MainActivity
 import com.learning.food1.R
+import com.learning.food1.databinding.FragmentMapsBinding
 
 class MapsFragment : Fragment() {
 
     lateinit var googleMap: GoogleMap
     lateinit var mapFragment: SupportMapFragment
+    lateinit var supportFragmentManager: FragmentManager
+    private lateinit var b: FragmentMapsBinding
 
     private val callback = OnMapReadyCallback { googleMap ->
         /**
@@ -70,9 +73,9 @@ class MapsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-            mapFragment =
-                childFragmentManager.findFragmentById(R.id.root_map_fragment) as SupportMapFragment
-            mapFragment.getMapAsync(callback)
+        mapFragment =
+            childFragmentManager.findFragmentById(R.id.root_map_fragment) as SupportMapFragment
+        mapFragment.getMapAsync(callback)
 
     }
 }

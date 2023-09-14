@@ -1,49 +1,51 @@
 package com.learning.food1.AdapterClass
 
-import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.learning.food1.Main.FamousItemsOfCityActivity
+import com.firebase.ui.database.FirebaseRecyclerAdapter
+import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.learning.food1.Model.FamousOfCityModel
 import com.learning.food1.R
 
 //class HomeAdapter(val context : Context,private val mList: List<FamousOfCityModel>) :
-class FamousOfCityAdapter(private val mList: List<FamousOfCityModel>) :
-    RecyclerView.Adapter<FamousOfCityAdapter.ViewHolder>() {
+class FamousOfCityAdapter(
+    options: FirebaseRecyclerOptions<FamousOfCityModel>,
+) :
+    FirebaseRecyclerAdapter<FamousOfCityModel, FamousOfCityAdapter.ViewHolder>(options) {
 
     // Holds the views for adding it to image and text
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val imageView: ImageView = itemView.findViewById(R.id.imageViewFamousOfCityDesign)
-        val textView: TextView = itemView.findViewById(R.id.textViewFamousOfCityDesign)
+        val title: TextView = itemView.findViewById(R.id.titleFamousOfCityDesign)
+        val description: TextView = itemView.findViewById(R.id.descriptionTextView)
 
     }
 
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.famous_items_of_city_card_view_design, parent, false)
+            .inflate(R.layout.activity_famous_item_of_city, parent, false)
         return ViewHolder(view)
     }
 
-    // binds the list items to a view
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val ItemsViewModel = mList[position]
-        // sets the image to the imageview and textview from our itemHolder class
-        holder
-            .imageView.setImageResource(ItemsViewModel.image)
-        holder
-            .textView.text = ItemsViewModel.text
+    override fun onBindViewHolder(
+        holder: ViewHolder,
+        position: Int,
+        model: FamousOfCityModel,
+    ) {
+        // holder.title.setText(model.image)
+        holder.imageView.setImageResource(model.image)
+        holder.title.text = model.itemPlaceName
+        holder.description.text = model.Description
     }
 
     // return the number of the items in the list
     override fun getItemCount(): Int {
-        return mList.size
+        return itemCount
     }
 
 

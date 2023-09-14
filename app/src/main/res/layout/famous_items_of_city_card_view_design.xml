@@ -26,18 +26,28 @@
             android:src="@drawable/sample_food_image" />
 
         <TextView
-            android:id="@+id/textViewFamousOfCityDesign"
+            android:id="@+id/titleFamousOfCityDesign"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_marginHorizontal="15dp"
             android:layout_marginTop="7dp"
+            android:fontFamily="sans-serif"
+            android:text="Title"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/descriptionFamousOfCityDesign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginHorizontal="15dp"
             android:layout_marginBottom="10dp"
             android:fontFamily="sans-serif"
-            android:text="Place/Food Name"
+            android:text="Description"
             android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textSize="20sp" />
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

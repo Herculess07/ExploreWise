@@ -1,7 +1,7 @@
 package com.learning.food1.Classes
 
-import android.widget.Spinner
-
+//import android.widget.Spinner
+//
 class ClassFood {
     // created getter and setter methods for all our variables.
     // string variable for storing
@@ -19,3 +19,5 @@ class ClassFood {
     val food_website_url: String? = null
 
 }
+
+

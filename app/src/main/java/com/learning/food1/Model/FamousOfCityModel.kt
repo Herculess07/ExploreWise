@@ -1,6 +1,10 @@
 package com.learning.food1.Model
 
-data class FamousOfCityModel(
+class FamousOfCityModel(
     val image: Int,
-    val text: String,
+    val itemPlaceName: String,
+    val Description: String
 ) : java.io.Serializable
+
+
+

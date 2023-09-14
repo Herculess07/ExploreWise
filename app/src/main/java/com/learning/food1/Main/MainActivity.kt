@@ -70,9 +70,9 @@ class MainActivity : AppCompatActivity() {
 
     fun fabClick() {
         b.fab.setOnClickListener { view ->
-//            Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
-//                .setAction("Action", null)
-//                .show()
+            //      Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
+            //          .setAction("Action", null)
+            //          .show()
             replaceFragment(AddFragment())
         }
     }

@@ -52,6 +52,8 @@
     <string name="location">Location</string>
     <string name="bookmark">Bookmark</string>
     <string name="settings">Settings</string>
+    <string name="add_famous_place">Add Famous Place</string>
+    <string name="add_famous_food">Add Famous Food</string>
 
     <string-array name="cities">
         <item>Ahmedabad</item>

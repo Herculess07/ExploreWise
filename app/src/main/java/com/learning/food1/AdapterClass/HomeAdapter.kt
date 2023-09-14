@@ -1,22 +1,30 @@
 package com.learning.food1.AdapterClass
 
-import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
+import com.learning.food1.BottomNavFragments.HomeFragment
 import com.learning.food1.Classes.ClassDevotional
-import com.learning.food1.Main.FamousItemsOfCityActivity
-import com.learning.food1.Model.ItemRecyclerVModel
 import com.learning.food1.R
 
-//class HomeAdapter(val context : Context,private val mList: List<ItemRecyclerVModel>) :
-class HomeAdapter(private val mList: ArrayList<ClassDevotional>) :
+class HomeAdapter(
+    private val mList: ArrayList<ClassDevotional>,
+    private val context: HomeFragment,
+) :
     RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
+
+
+//    class HomeAdapter(
+//        private val mList: ArrayList<ClassDevotional>,
+//        private val context: HomeFragment,
+//    ) : FirebaseRecyclerAdapter<ClassDevotional,RecyclerView.ViewHolder>
+//        {
+
+
+    private var onListener: OnClickListener? = null
 
     // Holds the views for adding it to image and text
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
@@ -25,22 +33,33 @@ class HomeAdapter(private val mList: ArrayList<ClassDevotional>) :
 
     }
 
-    // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.home_card_view_design, parent, false)
+
+//        val b = HomeCardViewDesignBinding.inflate(
+//            LayoutInflater.from(parent.context),
+//            parent, false
+//        )
+
         return ViewHolder(view)
     }
 
     // binds the list items to a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val ItemsViewModel = mList[position]
-        // sets the image to the imageview and textview from our itemHolder class
-//        holder
-//            .imageView.setImageResource(ItemsViewModel.image)
-        holder
-            .textView.text = ItemsViewModel.devotional_city
+        val Items = mList[position]
 
+//        Glide.with(context).load(Items.devotional_image).into(holder.imageView)
+        holder.textView.text = Items.devotional_city
+
+        holder.itemView.setOnClickListener {
+            Snackbar.make(it, "You clicked on ${Items.devotional_city}", Snackbar.LENGTH_SHORT)
+                .show()
+
+            if (onListener != null) {
+                onListener!!.onClick(position, Items)
+            }
+        }
     }
 
     // return the number of the items in the list
@@ -48,5 +67,14 @@ class HomeAdapter(private val mList: ArrayList<ClassDevotional>) :
         return mList.size
     }
 
+    fun setOnClickListener(onClickListener: OnClickListener) {
+        this.onListener = onClickListener
+    }
+
+    // onClickListener Interface
+    interface OnClickListener {
+        fun onClick(position: Int, model: ClassDevotional)
+
+    }
 
 }
