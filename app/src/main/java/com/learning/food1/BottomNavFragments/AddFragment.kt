@@ -5,11 +5,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.learning.food1.AddFamous.AddDevotionalPlace
 import com.learning.food1.AddFamous.AddFamousFood
 import com.learning.food1.AddFamous.AddFamousPlace
+import com.learning.food1.Main.FamousItemsOfCityActivity
 import com.learning.food1.databinding.FragmentAddBinding
 
 
@@ -42,6 +42,11 @@ class AddFragment : Fragment() {
 
         bindingAddFrag.btnAddPlace.setOnClickListener {
             val intent = Intent(this.requireContext(), AddFamousPlace::class.java)
+            this.startActivity(intent)
+        }
+
+        bindingAddFrag.btnTemp.setOnClickListener {
+            val intent = Intent(this.requireContext(), FamousItemsOfCityActivity::class.java)
             this.startActivity(intent)
         }
     }

@@ -50,7 +50,7 @@
             android:id="@+id/btnUploadImageDevotional"
             style="@style/button"
             android:text="@string/add_image"
-            android:textColor="@color/grey" />
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/tvImgNamePreviewDevotional"
@@ -68,7 +68,7 @@
             android:layout_margin="10dp"
             android:background="@color/grey"
             android:contentDescription="@string/image_cont_des"
-            android:src="@drawable/logo"/>
+            android:src="@drawable/logo" />
 
         <TextView
             android:id="@+id/tvAddressDevotional"
@@ -103,30 +103,35 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/spContSelectCityNameDevotional"
-            style="@style/container_err">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/spSelectCityNameDevotional"
-                style="@style/basic_view"
-                android:hint="@string/city"
-                android:inputType="text" />
-        </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/spContSelectCityNameDevotional"
+                style="@style/container_err_2">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/etContStateDevotional"
-            style="@style/container_err">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/spSelectCityNameDevotional"
+                    style="@style/basic_view"
+                    android:hint="@string/city"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etStateDevotional"
-                style="@style/basic_view"
-                android:hint="@string/state"
-                android:inputType="text"
-                android:text="@string/gujarat" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etContStateDevotional"
+                style="@style/container_err_2">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etStateDevotional"
+                    style="@style/basic_view"
+                    android:hint="@string/state"
+                    android:inputType="text"
+                    android:text="@string/gujarat" />
 
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etContPostalCodeDevotional"
@@ -144,8 +149,49 @@
             android:id="@+id/fragment_tiny_map"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
-            android:layout_height="250dp" />
+            android:layout_height="250dp"
+            android:layout_margin="12dp" />
 
+        <TextView
+            android:id="@+id/tvRedirectLatLngDevotional"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="@string/lat_long_picker"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etContLatitudeDevotional"
+                style="@style/container_err_2">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etLatitudeDevotional"
+                    style="@style/basic_view"
+                    android:hint="@string/latitude"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etContLongitudeDevotional"
+                style="@style/container_err_2">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etLongitudeDevotional"
+                    style="@style/basic_view"
+                    android:hint="@string/longitude"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tvContactInfoDevotional"

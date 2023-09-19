@@ -34,14 +34,13 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // defining views from xml file
-        val rootView = inflater.inflate(R.layout.fragment_home, container, false)
+        val rootView = inflater.inflate(R.layout.try_home_layout, container, false)
         recyclerView = rootView.findViewById<RecyclerView>(R.id.recyclerview)
         searchView = rootView.findViewById(R.id.homeSearchView)
 
         searchView.clearFocus()
 
-        recyclerView.layoutManager =
-            LinearLayoutManager(context) // this creates a vertical layout Manager
+        recyclerView.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
         recyclerView.setHasFixedSize(false)
 
         placesArrayList = ArrayList() // List to store retrieved data

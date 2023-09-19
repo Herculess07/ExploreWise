@@ -5,7 +5,8 @@
     android:id="@+id/rootGroupFragmentHome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BottomNavFragments.HomeFragment">
+    >
+<!--    tools:context=".BottomNavFragments.HomeFragment"-->
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -35,5 +35,11 @@
         android:layout_marginTop="55dp"
         android:text="@string/add_famous_food" />
 
+    <Button
+        android:id="@+id/btnTemp"
+        style="@style/button2"
+        android:layout_marginTop="105dp"
+        android:text="Temp" />
+
 
 </FrameLayout>

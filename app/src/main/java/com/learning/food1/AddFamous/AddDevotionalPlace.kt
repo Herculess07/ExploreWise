@@ -2,50 +2,34 @@ package com.learning.food1.AddFamous
 
 import android.app.Activity
 import android.app.ProgressDialog
-import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.provider.OpenableColumns
 import android.text.TextUtils
-import android.util.Log
-import android.widget.ArrayAdapter
-import android.widget.ImageView
 import android.widget.Toast
-import androidx.activity.result.ActivityResultCallback
-import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import com.bumptech.glide.Glide
-import com.google.android.gms.tasks.OnFailureListener
-import com.google.android.gms.tasks.OnSuccessListener
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.learning.food1.Classes.ClassDevotional
-import com.learning.food1.R
 import com.learning.food1.databinding.ActivityAddDevotionalPlaceBinding
-import java.io.File
 import java.util.UUID
 
 
 class AddDevotionalPlace : AppCompatActivity() {
 
-    private lateinit var bindingAddIA: ActivityAddDevotionalPlaceBinding
+    private lateinit var m: ActivityAddDevotionalPlaceBinding
     private lateinit var databaseReference: DatabaseReference
     private lateinit var firebaseDatabase: FirebaseDatabase
     private lateinit var imageUri: Uri
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        bindingAddIA = ActivityAddDevotionalPlaceBinding.inflate(layoutInflater)
-        setContentView(bindingAddIA.root)
+        m = ActivityAddDevotionalPlaceBinding.inflate(layoutInflater)
+        setContentView(m.root)
 
         firebaseDatabase = FirebaseDatabase.getInstance()
 
@@ -56,46 +40,47 @@ class AddDevotionalPlace : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        bindingAddIA.btnUploadImageDevotional.setOnClickListener {
+        m.btnUploadImageDevotional.setOnClickListener {
             val pickImg = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             displayIMG.launch(pickImg)
 
         }
-        bindingAddIA.btnSubmitDevotional.setOnClickListener {
+        m.btnSubmitDevotional.setOnClickListener {
             saveDevotionalPlacesData()
             uploadImage()
         }
-        bindingAddIA.btnCancelDevotional.setOnClickListener {
-            bindingAddIA.etPlaceNameDevotional.setText("")
-            bindingAddIA.etAboutDevotional.setText("")
-            bindingAddIA.tvImgNamePreviewDevotional.setText("")
-            bindingAddIA.etAreaDevotional.setText("")
-            bindingAddIA.etAdditionalDevotional.setText("")
-            bindingAddIA.spSelectCityNameDevotional.setText("")
-            bindingAddIA.etStateDevotional.setText("")
-            bindingAddIA.etPostalCodeDevotional.setText("")
-            bindingAddIA.etContactNumberDevotional.setText("")
-            bindingAddIA.etEmailDevotional.setText("")
-            bindingAddIA.etWebsiteDevotional.setText("")
+        m.btnCancelDevotional.setOnClickListener {
+            m.etPlaceNameDevotional.setText("")
+            m.etAboutDevotional.setText("")
+            m.tvImgNamePreviewDevotional.setText("")
+            m.etAreaDevotional.setText("")
+            m.etAdditionalDevotional.setText("")
+            m.spSelectCityNameDevotional.setText("")
+            m.etStateDevotional.setText("")
+            m.etPostalCodeDevotional.setText("")
+            m.etContactNumberDevotional.setText("")
+            m.etEmailDevotional.setText("")
+            m.etWebsiteDevotional.setText("")
         }
+        m.tvRedirectLatLngDevotional.setOnClickListener{redirectCoordinatePicker()}
 
     }
 
     private fun saveDevotionalPlacesData() {
-        val devotional_name: String = bindingAddIA.etPlaceNameDevotional.text.toString()
-        val devotional_about: String = bindingAddIA.etAboutDevotional.text.toString()
-//      val devotional_image: ImageView = bindingAddIA.tvImgNamePreviewDevotional
-        val devotional_image_name: String = bindingAddIA.tvImgNamePreviewDevotional.text.toString()
-        val devotional_area: String = bindingAddIA.etAreaDevotional.text.toString()
+        val devotional_name: String = m.etPlaceNameDevotional.text.toString()
+        val devotional_about: String = m.etAboutDevotional.text.toString()
+//      val devotional_image: ImageView = m.tvImgNamePreviewDevotional
+        val devotional_image_name: String = m.tvImgNamePreviewDevotional.text.toString()
+        val devotional_area: String = m.etAreaDevotional.text.toString()
         val devotional_additional_address_info: String =
-            bindingAddIA.etAdditionalDevotional.text.toString()
-        val devotional_city: String = bindingAddIA.spSelectCityNameDevotional.text.toString()
-        val devotional_state: String = bindingAddIA.etStateDevotional.text.toString()
-        val devotional_postal_code: String = bindingAddIA.etPostalCodeDevotional.text.toString()
+            m.etAdditionalDevotional.text.toString()
+        val devotional_city: String = m.spSelectCityNameDevotional.text.toString()
+        val devotional_state: String = m.etStateDevotional.text.toString()
+        val devotional_postal_code: String = m.etPostalCodeDevotional.text.toString()
         val devotional_contact_number: String =
-            bindingAddIA.etContactNumberDevotional.text.toString()
-        val devotional_email_address: String = bindingAddIA.etEmailDevotional.text.toString()
-        val devotional_website_url: String = bindingAddIA.etWebsiteDevotional.text.toString()
+            m.etContactNumberDevotional.text.toString()
+        val devotional_email_address: String = m.etEmailDevotional.text.toString()
+        val devotional_website_url: String = m.etWebsiteDevotional.text.toString()
 
 
         if (TextUtils.isEmpty(devotional_name) && TextUtils.isEmpty(devotional_about) && TextUtils.isEmpty(
@@ -111,7 +96,6 @@ class AddDevotionalPlace : AppCompatActivity() {
                 devPlaceID,
                 devotional_name,
                 devotional_about,
-
                 devotional_image_name,
                 devotional_area,
                 devotional_additional_address_info,
@@ -134,47 +118,44 @@ class AddDevotionalPlace : AppCompatActivity() {
     }
 
 
-    private val displayIMG =
-        registerForActivityResult(
-            ActivityResultContracts.StartActivityForResult()
-        ) {
-            if (it.resultCode == Activity.RESULT_OK) {
-                val data = it.data
-                imageUri = data?.data!!
-                bindingAddIA.imageViewAddDevotional.setImageURI(imageUri)
-            }
+    private val displayIMG = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) {
+        if (it.resultCode == Activity.RESULT_OK) {
+            val data = it.data
+            imageUri = data?.data!!
+            m.imageViewAddDevotional.setImageURI(imageUri)
         }
+    }
 
 
     // on below line creating a function to upload our image.
     fun uploadImage() {
-        // on below line checking weather our file uri is null or not.
         if (imageUri != null) {
-            // on below line displaying a progress dialog when uploading an image.
             val progressDialog = ProgressDialog(this)
-            // on below line setting title and message for our progress dialog and displaying our progress dialog.
             progressDialog.setTitle("Uploading...")
             progressDialog.setMessage("Uploading your image..")
             progressDialog.show()
 
-            // on below line creating a storage refrence for firebase storage and creating a child in it with
-            // random uuid.
-            val ref: StorageReference = FirebaseStorage.getInstance().getReference()
-                .child(UUID.randomUUID().toString())
-            // on below line adding a file to our storage.
+            val ref: StorageReference =
+                FirebaseStorage.getInstance().reference.child(UUID.randomUUID().toString())
             ref.putFile(imageUri!!).addOnSuccessListener {
-                // this method is called when file is uploaded.
-                // in this case we are dismissing our progress dialog and displaying a toast message
+
                 progressDialog.dismiss()
                 Toast.makeText(applicationContext, "Image Uploaded..", Toast.LENGTH_SHORT).show()
                 finish()
             }.addOnFailureListener {
-                // this method is called when there is failure in file upload.
-                // in this case we are dismissing the dialog and displaying toast message
                 progressDialog.dismiss()
                 Toast.makeText(applicationContext, "Fail to Upload Image..", Toast.LENGTH_SHORT)
                     .show()
             }
         }
     }
+
+    private fun redirectCoordinatePicker(){
+        val openURL = Intent(android.content.Intent.ACTION_VIEW)
+        openURL.data = Uri.parse("https://www.latlong.net/")
+        startActivity(openURL)
+    }
+
 }

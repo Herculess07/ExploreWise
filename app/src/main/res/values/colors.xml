@@ -30,8 +30,18 @@
     <color name="dark_blue_shade_2">#17388E</color>
     <color name="light_blue_shade">#12B2E6</color>
 
+<!--    cards color general category home screen-->
+    <color name="card1">#d4cbe5</color>
+    <color name="card2">#7adccf</color>
+    <color name="card3">#f7c59f</color>
+
+    <color name="lightwhite">#FAF7F0</color>
+    <color name="banner_background_light">#F3E6CE</color>
+
+
+
     <!-- Primary color -->
-    <color name="colorPrimary">#0CF3E1</color>
+    <color name="colorPrimary">@color/teal_200</color>
 
     <!-- Primary dark color -->
     <color name="colorPrimaryDark">#334B48</color>
@@ -46,7 +56,7 @@
     <!-- Background color -->
     <color name="backgroundColor">#1f1a30</color>
 
-    <color name="colorPrimaryNight">#0CF3E1</color>
+    <color name="colorPrimaryNight">@color/teal_200</color>
     <color name="colorPrimaryDarkNight">#0cf3e1</color>
     <color name="colorAccentNight">#B0BEC5</color>
 </resources>

@@ -25,7 +25,20 @@
         <item name="helperTextTextColor">@color/design_default_color_error</item>
     </style>
 
-<!--    container without error enabled style-->
+    <!--    container with error enabled style-->
+    <style name="container_err_2" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="errorEnabled">true</item>
+        <item name="android:layout_weight">1</item>
+
+        <item name="helperText">@string/required</item>
+        <item name="helperTextTextColor">@color/design_default_color_error</item>
+    </style>
+
+
+    <!--    container without error enabled style-->
     <style name="container" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>

@@ -35,13 +35,7 @@ class HomeAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.home_card_view_design, parent, false)
-
-//        val b = HomeCardViewDesignBinding.inflate(
-//            LayoutInflater.from(parent.context),
-//            parent, false
-//        )
-
+            .inflate(R.layout.feaatured_card_design_home, parent, false)
         return ViewHolder(view)
     }
 

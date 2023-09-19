@@ -42,18 +42,31 @@
     <string name="state">State</string>
     <string name="gujarat">Gujarat</string>
     <string name="postal_code">Postal Code</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
     <string name="contact_information_for_place">Contact Information for Place</string>
+    <string name="lat_long_picker">Click for Coordinate Picker</string>
     <string name="enter_contact_number">Enter Contact Number</string>
     <string name="enter_email_address">Enter Email Address</string>
     <string name="website_url">Website URL</string>
     <string name="cancel">Cancel</string>
     <string name="fab">fab</string>
     <string name="home">Home</string>
+    <string name="Explore">Explore</string>
     <string name="location">Location</string>
     <string name="bookmark">Bookmark</string>
     <string name="settings">Settings</string>
     <string name="add_famous_place">Add Famous Place</string>
     <string name="add_famous_food">Add Famous Food</string>
+    <string name="logo_name">Explore Wise</string>
+    <string name="search_text">Search Here ..</string>
+    <string name="food">Food</string>
+    <string name="devotional">Devotional</string>
+    <string name="place">Place</string>
+    <string name="featured_locations">Famous From Your City</string>
+    <string name="featured_locations_descriptions">This is featured city of the day you will find all famous place here this is random text</string>
+    <string name="most_viewed_location">MOST VIEWED</string>
+    <string name="view_all">View All</string>
 
     <string-array name="cities">
         <item>Ahmedabad</item>
