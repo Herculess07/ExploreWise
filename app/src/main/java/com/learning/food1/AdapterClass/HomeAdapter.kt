@@ -16,17 +16,8 @@ class HomeAdapter(
 ) :
     RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
 
-
-//    class HomeAdapter(
-//        private val mList: ArrayList<ClassDevotional>,
-//        private val context: HomeFragment,
-//    ) : FirebaseRecyclerAdapter<ClassDevotional,RecyclerView.ViewHolder>
-//        {
-
-
     private var onListener: OnClickListener? = null
 
-    // Holds the views for adding it to image and text
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
 //        val imageView: ImageView = itemView.findViewById(R.id.imageViewHomeDesign)
         val textView: TextView = itemView.findViewById(R.id.textViewHomeDesign)

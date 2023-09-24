@@ -4,16 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
-import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.learning.food1.Main.MainActivity
-import com.learning.food1.R
 import com.learning.food1.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
@@ -89,7 +84,12 @@ class LoginActivity : AppCompatActivity() {
                         Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
                         finish()
                     } else {
-                        Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                        try {
+                            Toast.makeText(this, "", Toast.LENGTH_SHORT).show()
+                        }catch (e:Error){
+                            Toast.makeText(this, "${e.message}", Toast.LENGTH_SHORT).show()
+
+                        }
                     }
                 } else {
                     Toast.makeText(this, "Internet Not Connected", Toast.LENGTH_SHORT).show()

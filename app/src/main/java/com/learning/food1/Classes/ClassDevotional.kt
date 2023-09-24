@@ -1,7 +1,6 @@
 package com.learning.food1.Classes
 
 data class ClassDevotional(
-    // created getter and setter methods for all our variables.
     // string variable for storing
     val devPlaceID: String? = null,
     val devotional_name: String? = null,

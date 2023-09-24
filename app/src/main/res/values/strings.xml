@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Food 1</string>
+    <string name="app_name">Explore Wise</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="title_activity_maps_fragment">MapsFragment</string>
     <string name="google_maps_api_key">AIzaSyD5Xo3fOfn99rRrM56fEddvsBSIawlYGKg</string>
@@ -65,7 +65,9 @@
     <string name="place">Place</string>
     <string name="featured_locations">Famous From Your City</string>
     <string name="featured_locations_descriptions">This is featured city of the day you will find all famous place here this is random text</string>
-    <string name="most_viewed_location">MOST VIEWED</string>
+    <string name="most_visited_cities">MOST VISITED CITIES</string>
+    <string name="most_visited_places">MOST VISITED PLACES</string>
+    <string name="delicious_delights">DELICIOUS DELIGHTS</string>
     <string name="view_all">View All</string>
 
     <string-array name="cities">

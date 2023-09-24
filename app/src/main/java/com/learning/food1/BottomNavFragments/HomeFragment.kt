@@ -6,47 +6,59 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.learning.food1.AdapterClass.HomeAdapter
+import com.learning.food1.AppUtils
 import com.learning.food1.Classes.ClassDevotional
 import com.learning.food1.Main.FamousItemsOfCityActivity
 import com.learning.food1.R
+import com.learning.food1.databinding.TryHomeLayoutBinding
 
 
 class HomeFragment : Fragment() {
 
-    private lateinit var recyclerView: RecyclerView
     private lateinit var databaseReference: DatabaseReference
     private lateinit var placesArrayList: ArrayList<ClassDevotional>
-    private lateinit var searchView: SearchView
+    private lateinit var b : TryHomeLayoutBinding
+    val appUtils = AppUtils()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        // defining views from xml file
-        val rootView = inflater.inflate(R.layout.try_home_layout, container, false)
-        recyclerView = rootView.findViewById<RecyclerView>(R.id.recyclerview)
-        searchView = rootView.findViewById(R.id.homeSearchView)
+        // view binding
+        b = TryHomeLayoutBinding.inflate(inflater,container,false)
 
-        searchView.clearFocus()
+        b.homeSearchView.clearFocus()
 
-        recyclerView.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
-        recyclerView.setHasFixedSize(false)
+        b.rcvFamousCitiesHome.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+        b.rcvFamousCitiesHome.setHasFixedSize(false)
+
+        b.rcvFamousFoodHome.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+        b.rcvFamousFoodHome.setHasFixedSize(false)
+
+        b.rcvFamousPlacesHome.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,true)
+        b.rcvFamousFoodHome.setHasFixedSize(true)
 
         placesArrayList = ArrayList() // List to store retrieved data
         getUserData()
 
-        return rootView
+        return b.root
+    }
+
+    override fun onStart() {
+        super.onStart()
+        b.imgAdd.setOnClickListener{
+            findNavController().navigate(R.id.goToAddFragment)
+        }
     }
 
     private fun getUserData() {
@@ -64,7 +76,7 @@ class HomeFragment : Fragment() {
                     }
                     val itemsAdapter = HomeAdapter(placesArrayList, this@HomeFragment)
 
-                    recyclerView.adapter = itemsAdapter
+                    b.rcvFamousCitiesHome.adapter = itemsAdapter
 
                 }
             }
@@ -80,7 +92,7 @@ class HomeFragment : Fragment() {
     fun clickListener() {
         val itemsAdapter = HomeAdapter(placesArrayList, this@HomeFragment)
 
-        recyclerView?.adapter = itemsAdapter
+        b.rcvFamousCitiesHome.adapter = itemsAdapter
 
         itemsAdapter.setOnClickListener(object : HomeAdapter.OnClickListener {
             override fun onClick(position: Int, model: ClassDevotional) {

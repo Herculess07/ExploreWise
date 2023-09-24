@@ -6,10 +6,9 @@ import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.fragment.app.Fragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
-import com.learning.food1.BottomNavFragments.AddFragment
+import com.learning.food1.AppUtils
 import com.learning.food1.BottomNavFragments.BookmarkFragment
 import com.learning.food1.BottomNavFragments.HomeFragment
 import com.learning.food1.BottomNavFragments.SettingsFragment
@@ -22,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var b: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
     private lateinit var fab: FloatingActionButton
+    private val appUtils = AppUtils()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES) //For night mode theme
@@ -41,10 +41,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        replaceFragment(HomeFragment())
+        appUtils.replaceFragment(supportFragmentManager,HomeFragment(),R.id.frameLayout)
         fragment()
         userPermissionAccess()
-        fabClick()
 
     }
 
@@ -52,35 +51,19 @@ class MainActivity : AppCompatActivity() {
         // Change fragment on click bottom navigation bar icon
         b.botNavView.setOnItemSelectedListener {
             when (it.itemId) {
-                R.id.btmIconExplore -> replaceFragment(HomeFragment())
-                R.id.btmIconBookmark -> replaceFragment(BookmarkFragment())
-                R.id.btmIconUserSettings -> replaceFragment(SettingsFragment())
-                R.id.imgAdd -> replaceFragment(AddFragment())
+                R.id.btmIconExplore -> appUtils.replaceFragment(supportFragmentManager,HomeFragment(),R.id.frameLayout)
+                R.id.btmIconBookmark -> appUtils.replaceFragment(supportFragmentManager,BookmarkFragment(),R.id.frameLayout)
+                R.id.btmIconUserSettings -> appUtils.replaceFragment(supportFragmentManager,SettingsFragment(),R.id.frameLayout)
 
                 else -> {
-                    replaceFragment(HomeFragment())
+                    appUtils.replaceFragment(supportFragmentManager,HomeFragment(),R.id.frameLayout)
                 }
             }
             true
         }
     }
 
-    fun fabClick() {
-        b.fab.setOnClickListener { view ->
-            //      Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG)
-            //          .setAction("Action", null)
-            //          .show()
-            replaceFragment(AddFragment())
-        }
-    }
 
-
-    // private fun for change fragment
-    private fun replaceFragment(fragment: Fragment) {
-        val fragmentTransaction = supportFragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.frameLayout, fragment)
-        fragmentTransaction.commit()
-    }
 
     private fun checkLoginStatus() {
         // Check if the user is already signed in.
