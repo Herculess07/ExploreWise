@@ -1,13 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="Theme.Food1" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.Food1" parent="Theme.Material3.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
     </style>
 
-    <style name="Theme.Food1.Night" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.Food1.Night" parent="Theme.Material3.Dark.NoActionBar">
         <item name="colorPrimary">@color/colorPrimaryNight</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkNight</item>
         <item name="colorAccent">@color/colorAccentNight</item>

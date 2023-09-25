@@ -25,7 +25,6 @@ class FamousItemsOfCityActivity : AppCompatActivity() {
         binding = ActivityFamousItemOfCityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         firebaseDatabase = FirebaseDatabase.getInstance()
         databaseReference = firebaseDatabase.getReference("Users").child("DevotionalPlaces")
 
@@ -39,9 +38,8 @@ class FamousItemsOfCityActivity : AppCompatActivity() {
 
         adapter = FamousOfCityAdapter(options)
         recyclerView.adapter = adapter
-        // calling method
-        // for getting data.
-//        getdata()
+
+        val cityId = intent.getStringExtra("cityId")
     }
 
     override fun onStart() {

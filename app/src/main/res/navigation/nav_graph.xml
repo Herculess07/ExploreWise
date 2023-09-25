@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph">
+
+    <fragment
+        android:id="@+id/try_home_fragment"
+        android:name="com.learning.food1.BottomNavFragments.HomeFragment"
+        android:label="HomeFragment">
+        <!-- ... other fragment configurations ... -->
+        <action
+            android:id="@+id/action_try_home_fragment_to_layoutFragmentAdd"
+            app:destination="@id/layoutFragmentAdd" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/layoutFragmentAdd"
+        android:name="com.learning.food1.BottomNavFragments.AddFragment"
+        android:label="AddFragment">
+        <!-- ... other fragment configurations ... -->
+    </fragment>
+
+
+
+
+</navigation>

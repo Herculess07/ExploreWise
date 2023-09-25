@@ -26,7 +26,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var databaseReference: DatabaseReference
     private lateinit var placesArrayList: ArrayList<ClassDevotional>
-    private lateinit var b : TryHomeLayoutBinding
+    private lateinit var b: TryHomeLayoutBinding
     val appUtils = AppUtils()
 
     override fun onCreateView(
@@ -35,17 +35,20 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         // view binding
-        b = TryHomeLayoutBinding.inflate(inflater,container,false)
-
+        b = TryHomeLayoutBinding.inflate(inflater, container, false)
         b.homeSearchView.clearFocus()
 
-        b.rcvFamousCitiesHome.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+
+        b.rcvFamousCitiesHome.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         b.rcvFamousCitiesHome.setHasFixedSize(false)
 
-        b.rcvFamousFoodHome.layoutManager = LinearLayoutManager(context,LinearLayoutManager.HORIZONTAL,false)
+        b.rcvFamousFoodHome.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         b.rcvFamousFoodHome.setHasFixedSize(false)
 
-        b.rcvFamousPlacesHome.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,true)
+        b.rcvFamousPlacesHome.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, true)
         b.rcvFamousFoodHome.setHasFixedSize(true)
 
         placesArrayList = ArrayList() // List to store retrieved data
@@ -56,28 +59,26 @@ class HomeFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        b.imgAdd.setOnClickListener{
-            findNavController().navigate(R.id.goToAddFragment)
+        b.imgAdd.setOnClickListener {
+            findNavController().navigate(R.id.action_try_home_fragment_to_layoutFragmentAdd)
         }
+
+
     }
 
     private fun getUserData() {
         databaseReference =
             FirebaseDatabase.getInstance().getReference("Users").child("DevotionalPlaces")
         databaseReference.addValueEventListener(object : ValueEventListener {
-
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     for (placeSnapshot in snapshot.children) {
-
                         val place = placeSnapshot.getValue(ClassDevotional::class.java)
                         placesArrayList.add(place!!)
 
                     }
-                    val itemsAdapter = HomeAdapter(placesArrayList, this@HomeFragment)
-
+                    val itemsAdapter = HomeAdapter(requireContext(),placesArrayList)
                     b.rcvFamousCitiesHome.adapter = itemsAdapter
-
                 }
             }
 
@@ -90,22 +91,20 @@ class HomeFragment : Fragment() {
     }
 
     fun clickListener() {
-        val itemsAdapter = HomeAdapter(placesArrayList, this@HomeFragment)
-
+        val itemsAdapter = HomeAdapter(requireContext(), placesArrayList)
         b.rcvFamousCitiesHome.adapter = itemsAdapter
+        itemsAdapter.setOnItemClickListener(object : HomeAdapter.OnItemClickListener {
+            override fun onItemClick(cityId: String?) {
+                val intent = Intent(requireContext(), FamousItemsOfCityActivity::class.java)
 
-        itemsAdapter.setOnClickListener(object : HomeAdapter.OnClickListener {
-            override fun onClick(position: Int, model: ClassDevotional) {
-                val intent = Intent(context, FamousItemsOfCityActivity::class.java)
-
-                intent.putExtra(NEXT_SCREEN,placesArrayList)
+                intent.putExtra(NEXT_SCREEN, cityId)
                 startActivity(intent)
             }
         })
     }
 
     companion object {
-        val NEXT_SCREEN = "details_screen"
+        val NEXT_SCREEN = "cityId"
     }
 
 }
