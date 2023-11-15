@@ -20,6 +20,19 @@
         tools:context="MainActivity"
         tools:showIn="@layout/activity_main">
 
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/imgAdd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:layout_margin="16dp"
+                android:contentDescription="@string/add_image"
+                app:maxImageSize="@dimen/_25sdp"
+                app:srcCompat="@drawable/baseline_add_24"
+                tools:ignore="RtlHardcoded" />
+
+
     </FrameLayout>
 
 

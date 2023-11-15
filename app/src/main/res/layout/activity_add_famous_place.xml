@@ -1,184 +1,288 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layoutAddItem"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".AddFamous.AddFamousPlace">
+    android:layout_height="match_parent">
 
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/layoutAddItem"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <TextView
-            android:id="@+id/tvHeadingPlace"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Add Famous Place"
-            android:textColor="#2196F3"
-            android:textSize="30sp" />
-
-        <EditText
-            android:id="@+id/etPlaceNamePlace"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#2196F3"
-            android:hint="Enter Famous Place Name" />
-
-        <EditText
-            android:id="@+id/etAboutPlace"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#2196F3"
-            android:hint="About Famous Place" />
-
-
-        <Button
-            android:id="@+id/btnUploadImagePlace"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:backgroundTint="#2196F3"
-            android:text="Add Image"
-            android:textColor="@android:color/white"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/tvImgNamePreviewPlace"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="18sp"
-            android:text="Image Name" />
-
-        <TextView
-            android:id="@+id/tvAddressPlace"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:text="Address"
-            android:textColor="#2196F3"
-            android:textSize="22sp" />
-
-        <EditText
-            android:id="@+id/etAreaPlace"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#2196F3"
-            android:hint="Area" />
-
-        <EditText
-            android:id="@+id/etAdditionalPlace"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#2196F3"
-            android:hint="Additional Address Info" />
-
-        <Spinner
-            android:id="@+id/spSelectCityNamePlace"
-            android:layout_width="match_parent"
-            android:layout_marginTop="16dp"
-            android:layout_height="50dp"
-            android:padding="8dp"
-            android:backgroundTint="#2196F3"
-            android:spinnerMode="dropdown" />
-
-        <TextView
-            android:id="@+id/etStatePlace"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:textSize="20sp"
-            android:padding="8dp"
-            android:backgroundTint="#2196F3"
-            android:text="Gujarat" />
-
-        <EditText
-            android:id="@+id/etPostalCodePlace"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#2196F3"
-            android:hint="Postal Code"
-            android:inputType="textPostalAddress" />
-
-        <TextView
-            android:id="@+id/tvContactInfoPlace"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:text="Contact Information for Place"
-            android:textColor="#2196F3"
-            android:textSize="22sp" />
-
-        <EditText
-            android:id="@+id/etContactNumberPlace"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#2196F3"
-            android:hint="Enter Contact Number"
-            android:inputType="number"
-            android:maxLength="10"/>
-
-        <EditText
-            android:id="@+id/etEmailPlace"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#2196F3"
-            android:hint="Enter Email Address"
-            android:inputType="textEmailAddress"/>
-
-        <EditText
-            android:id="@+id/etWebsitePlace"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#2196F3"
-            android:hint="Website URL"
-            android:inputType="textUri"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".AddFamous.AddFamousPlace">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <Button
-                android:id="@+id/btnSubmitPlace"
+            <TextView
+                android:id="@+id/tvHeadingPlace"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginEnd="10dp"
-                android:layout_weight="1"
-                android:backgroundTint="#118F16"
-                android:text="Add Famous Place"
-                android:textSize="18sp" />
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/add_famous_place"
+                android:textColor="@color/teal_200"
+                android:textSize="30sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etContPlaceNamePlace"
+                style="@style/container_err">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPlaceNamePlace"
+                    style="@style/basic_view"
+                    android:hint="@string/enter_famous_place_name" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etContAboutPlace"
+                style="@style/container_err">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAboutPlace"
+                    style="@style/basic_view"
+                    android:hint="@string/about_place"
+                    android:inputType="textMultiLine" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/cancelButton"
+                android:id="@+id/btnUploadImagePlace"
+                style="@style/button"
+                android:text="@string/add_image"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvImgNamePreviewPlace"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="10dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/black"
-                android:text="Cancel"
+                android:layout_gravity="center"
+                android:text="@string/image_name"
+                android:textSize="18sp"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/imageViewAddPlace"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:background="@color/grey"
+                android:contentDescription="@string/image_cont_des" />
+
+            <TextView
+                android:id="@+id/tvAddressPlace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/address"
+                android:textSize="@dimen/_20sdp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etContAreaPlace"
+                style="@style/container_err">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAreaPlace"
+                    style="@style/basic_view"
+                    android:hint="@string/area"
+                    android:inputType="textMultiLine" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etContAdditionalPlace"
+                style="@style/container">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAdditionalPlace"
+                    style="@style/basic_view"
+                    android:hint="@string/additional_address_info"
+                    android:lines="2" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/spContSelectCityNamePlace"
+                    style="@style/container_err_2">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/spSelectCityNamePlace"
+                        style="@style/basic_view"
+                        android:hint="@string/city"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/etContStatePlace"
+                    style="@style/container_err_2">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etStatePlace"
+                        style="@style/basic_view"
+                        android:hint="@string/state"
+                        android:inputType="text"
+                        android:text="@string/gujarat" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etContPostalCodePlace"
+                style="@style/container_err">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPostalCodePlace"
+                    style="@style/basic_view"
+                    android:hint="@string/postal_code"
+                    android:inputType="textPostalAddress" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <fragment
+                android:id="@+id/fragment_tiny_map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_margin="12dp" />
+
+            <TextView
+                android:id="@+id/tvRedirectLatLngPlace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/lat_long_picker"
+                android:textColor="@color/textColorPrimary"
                 android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/etContLatitudePlace"
+                    style="@style/container_err_2">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etLatitudePlace"
+                        style="@style/basic_view"
+                        android:hint="@string/latitude"
+                        android:inputType="number" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/etContLongitudePlace"
+                    style="@style/container_err_2">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etLongitudePlace"
+                        style="@style/basic_view"
+                        android:hint="@string/longitude"
+                        android:inputType="number" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvContactInfoPlace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/contact_information_for_place"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="@dimen/_20sdp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etContContactNumberPlace"
+                style="@style/container"
+                app:counterMaxLength="10">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etContactNumberPlace"
+                    style="@style/basic_view"
+                    android:hint="@string/enter_contact_number"
+                    android:inputType="phone"
+                    android:maxLength="10" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etContEmailPlace"
+                style="@style/container">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEmailPlace"
+                    style="@style/basic_view"
+                    android:hint="@string/enter_email_address"
+                    android:inputType="textEmailAddress"
+                    android:textSize="18sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etContWebsitePlace"
+                style="@style/container">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etWebsitePlace"
+                    style="@style/basic_view"
+                    android:hint="@string/website_url"
+                    android:inputType="textUri"
+                    android:textSize="18sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnSubmitPlace"
+                    style="@style/button"
+                    android:text="@string/add_famous_place"
+                    android:textColor="@color/grey" />
+
+                <Button
+                    android:id="@+id/btnCancelPlace"
+                    style="@style/button"
+                    android:backgroundTint="@color/red"
+                    android:text="@string/cancel" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
+    </ScrollView>
 
-</ScrollView>
+    <ProgressBar
+        android:id="@+id/pbPlace"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

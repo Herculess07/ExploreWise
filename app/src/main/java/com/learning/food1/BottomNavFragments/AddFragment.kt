@@ -5,48 +5,44 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.learning.food1.AddFamous.AddDevotionalPlace
 import com.learning.food1.AddFamous.AddFamousFood
 import com.learning.food1.AddFamous.AddFamousPlace
-import com.learning.food1.Main.FamousItemsOfCityActivity
 import com.learning.food1.databinding.FragmentAddBinding
 
 
-class AddFragment : Fragment() {
+class AddFragment : BottomSheetDialogFragment() {
 
-    private lateinit var bindingAddFrag:FragmentAddBinding
+    private lateinit var bindingAddFrag: FragmentAddBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
 
-        // Inflate the layout for this fragment
         bindingAddFrag = FragmentAddBinding.inflate(layoutInflater)
+
+
+        init()
         return bindingAddFrag.root
 
     }
 
-    override fun onStart() {
-        super.onStart()
-        bindingAddFrag.btnAddFood.setOnClickListener {
+
+    private fun init(){
+        bindingAddFrag.llAddFamousFood.setOnClickListener {
             val intent = Intent(this.requireContext(), AddFamousFood::class.java)
             this.startActivity(intent)
         }
 
-        bindingAddFrag.btnAddDevotionalPlace.setOnClickListener {
+        bindingAddFrag.llAddDevotionalPlace.setOnClickListener {
             val intent = Intent(this.requireContext(), AddDevotionalPlace::class.java)
             this.startActivity(intent)
         }
 
-        bindingAddFrag.btnAddPlace.setOnClickListener {
+        bindingAddFrag.llAddPlace.setOnClickListener {
             val intent = Intent(this.requireContext(), AddFamousPlace::class.java)
-            this.startActivity(intent)
-        }
-
-        bindingAddFrag.btnTemp.setOnClickListener {
-            val intent = Intent(this.requireContext(), FamousItemsOfCityActivity::class.java)
             this.startActivity(intent)
         }
     }

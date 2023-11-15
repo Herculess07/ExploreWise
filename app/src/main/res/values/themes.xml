@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
 
     <style name="Theme.Food1" parent="Theme.Material3.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -15,7 +15,7 @@
     </style>
 
 
-<!--    container with error enabled style-->
+    <!--    container with error enabled style-->
     <style name="container_err" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
@@ -45,15 +45,15 @@
         <item name="android:layout_margin">10dp</item>
     </style>
 
-<!--    basic view style-->
+    <!--    basic view style-->
     <style name="basic_view" parent="MaterialAlertDialog.Material3">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">18sp</item>
     </style>
 
-<!--    basic button style-->
-    <style name="button" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+    <!--    basic button style-->
+    <style name="button" parent="Widget.Material3.Button">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
@@ -63,13 +63,13 @@
         <item name="android:layout_marginHorizontal">5dp</item>
     </style>
 
-    <style name="button2" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="android:layout_width">wrap_content</item>
+    <style name="button2" parent="Widget.MaterialComponents.TextView">
+        <item name="android:layout_width">@dimen/_200sdp</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_gravity">center</item>
-
-        <item name="android:layout_weight">1</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginVertical">@dimen/_20sdp</item>
+        <item name="android:layout_marginStart">@dimen/_10sdp</item>
+        <item name="android:layout_gravity">start</item>
+        <item name="android:textSize">@dimen/_18sdp</item>
         <item name="android:textColor">@color/textColorPrimary</item>
 
     </style>

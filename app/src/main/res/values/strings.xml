@@ -30,8 +30,12 @@
     <string name="already_have_an_account_login">Already Have an Account? </string>
     <string name="required">Required</string>
     <string name="enter_devotional_place_name">Enter Devotional Place Name</string>
+    <string name="enter_famous_food_name">Enter Famous Food Name</string>
+    <string name="enter_famous_place_name">Enter Famous Place Name</string>
     <string name="add_devotional_place">Add Devotional Place</string>
-    <string name="about">About e.g. 120 Years old Ambe Ma Temple</string>
+    <string name="about_devotional">About Devotional Place</string>
+    <string name="about_food">About Famous Food</string>
+    <string name="about_place">About Famous Place</string>
     <string name="add_image">Add Image</string>
     <string name="image_name">Image Name</string>
     <string name="image_cont_des">Uploaded Image</string>
@@ -44,7 +48,7 @@
     <string name="postal_code">Postal Code</string>
     <string name="latitude">Latitude</string>
     <string name="longitude">Longitude</string>
-    <string name="contact_information_for_place">Contact Information for Place</string>
+    <string name="contact_information_for_place">Contact Information</string>
     <string name="lat_long_picker">Click for Coordinate Picker</string>
     <string name="enter_contact_number">Enter Contact Number</string>
     <string name="enter_email_address">Enter Email Address</string>
@@ -66,9 +70,11 @@
     <string name="featured_locations">Famous From Your City</string>
     <string name="featured_locations_descriptions">This is featured city of the day you will find.</string>
     <string name="most_visited_cities">MOST VISITED CITIES</string>
-    <string name="most_visited_places">MOST VISITED PLACES</string>
-    <string name="delicious_delights">DELICIOUS DELIGHTS</string>
+    <string name="most_visited_devotion">Devotional Places</string>
+    <string name="most_visited_places">Famous Places</string>
+    <string name="delicious_delights">Delicious Delights</string>
     <string name="view_all">View All</string>
+    <string name="choose_option">Choose Option :</string>
 
     <string-array name="cities">
         <item>Ahmedabad</item>

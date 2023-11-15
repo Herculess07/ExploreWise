@@ -12,16 +12,17 @@ import com.learning.food1.Model.FamousOfCityModel
 import com.learning.food1.R
 
 //class HomeAdapter(val context : Context,private val mList: List<FamousOfCityModel>) :
-class FamousOfCityAdapter(
-    options: FirebaseRecyclerOptions<FamousOfCityModel>,
+class CityAdapter(
+    options: FirebaseRecyclerOptions<FamousOfCityModel>
 ) :
-    FirebaseRecyclerAdapter<FamousOfCityModel, FamousOfCityAdapter.ViewHolder>(options) {
+    FirebaseRecyclerAdapter<FamousOfCityModel, CityAdapter.ViewHolder>(options) {
 
     // Holds the views for adding it to image and text
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
         val imageView: ImageView = itemView.findViewById(R.id.imageViewFamousOfCityDesign)
         val title: TextView = itemView.findViewById(R.id.titleFamousOfCityDesign)
         val description: TextView = itemView.findViewById(R.id.descriptionTextView)
+        val bookmark: ImageView = itemView.findViewById(R.id.bookmarkFamousOfCityDesign)
 
     }
 
@@ -39,14 +40,23 @@ class FamousOfCityAdapter(
     ) {
         // holder.title.setText(model.image)
         holder.imageView.setImageResource(model.image)
-        holder.title.text = model.itemPlaceName
-        holder.description.text = model.Description
+        holder.title.text = model.devotional_name
+        holder.description.text = model.devotional_about
+        holder.bookmark.setOnClickListener {
+            if (model.bookmark) {
+                holder.bookmark.setImageResource(R.drawable.baseline_bookmark_border_24)
+                model.bookmark = false
+            } else {
+                holder.bookmark.setImageResource(R.drawable.baseline_bookmark_24)
+                model.bookmark = true
+            }
+        }
     }
 
     // return the number of the items in the list
-    override fun getItemCount(): Int {
+   /* override fun getItemCount(): Int {
         return itemCount
-    }
+    }*/
 
 
 }

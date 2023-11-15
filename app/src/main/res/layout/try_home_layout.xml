@@ -8,11 +8,10 @@
     android:orientation="vertical"
     tools:context=".BottomNavFragments.HomeFragment">
 
-    <RelativeLayout
+    <!--<RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp">
-
 
         <ImageView
             android:id="@+id/imgAdd"
@@ -21,152 +20,27 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:background="@color/banner_background_light"
+            android:contentDescription="imageadd"
             android:padding="5dp"
             android:src="@drawable/baseline_add_24" />
 
-    </RelativeLayout>
+    </RelativeLayout>-->
 
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/app_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true"
-                    android:fontFamily="casual"
-                    android:text="@string/logo_name"
-                    android:textColor="@color/textColorPrimary"
-                    android:textFontWeight="700"
-                    android:textSize="25sp" />
-
-                <androidx.appcompat.widget.SearchView
-                    android:id="@+id/homeSearchView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/app_name"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginVertical="10dp"
-                    android:background="@drawable/search_bar_design"
-                    android:elevation="4dp"
-                    android:focusable="true"
-                    app:iconifiedByDefault="false"
-                    app:queryHint="@string/search_text"
-                    app:searchIcon="@drawable/car_ui_icon_search" />
-            </RelativeLayout>
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_margin="10dp"
-                        android:background="@drawable/card1_home"
-                        android:elevation="8dp">
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:layout_centerInParent="true"
-                            android:src="@drawable/baseline_fastfood_24" />
-                    </RelativeLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:text="@string/food"
-                        android:textAlignment="center" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_margin="10dp"
-                        android:background="@drawable/card2_home"
-                        android:elevation="8dp">
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:layout_centerInParent="true"
-                            android:src="@drawable/temple" />
-                    </RelativeLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:text="@string/devotional"
-                        android:textAlignment="center" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="vertical">
-
-                    <RelativeLayout
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_margin="10dp"
-                        android:background="@drawable/card3_home"
-                        android:elevation="8dp">
-
-                        <ImageView
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:layout_centerInParent="true"
-                            android:src="@drawable/baseline_place_24" />
-                    </RelativeLayout>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_horizontal"
-                        android:text="@string/place"
-                        android:textAlignment="center" />
-
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:background="@color/lightwhite"
                 android:orientation="vertical">
 
                 <RelativeLayout
@@ -174,117 +48,118 @@
                     android:layout_height="wrap_content">
 
                     <TextView
+                        android:id="@+id/app_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="sans-serif-medium"
-                        android:text="@string/most_visited_cities"
-                        android:textAllCaps="true"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textSize="20sp" />
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginVertical="@dimen/_10sdp"
+                        android:fontFamily="casual"
+                        android:text="@string/logo_name"
+                        android:textColor="@color/textColorPrimary"
+                        android:textFontWeight="700"
+                        android:textSize="25sp" />
+
+                    <!--<androidx.appcompat.widget.SearchView
+                        android:id="@+id/homeSearchView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/app_name"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginVertical="10dp"
+                        android:background="@drawable/search_bar_design"
+                        android:elevation="4dp"
+                        android:focusable="true"
+                        app:iconifiedByDefault="false"
+                        app:queryHint="@string/search_text"
+                        app:searchIcon="@drawable/car_ui_icon_search" /> -->
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:id="@+id/homeSearchView"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginEnd="15dp"
-                        android:text="@string/view_all" />
+                        android:layout_below="@+id/app_name"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginVertical="@dimen/_8sdp"
+                        android:background="@drawable/search_bar_design"
+                        android:hint="@string/search_text"
+                        android:padding="@dimen/_10sdp"
+                        android:paddingHorizontal="@dimen/_25sdp"
+                        android:textSize="@dimen/_15sdp" />
                 </RelativeLayout>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcvFamousCitiesHome"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    tools:itemCount="5"
-                    tools:listitem="@layout/feaatured_card_design_home"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:orientation="vertical"
-                android:paddingLeft="20dp"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp">
-
-                <RelativeLayout
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="6dp"
+                    android:layout_margin="16dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:fontFamily="sans-serif-medium"
-                        android:text="@string/most_visited_places"
-                        android:textAllCaps="true"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textSize="20sp" />
+                    <!--<com.smarteist.autoimageslider.SliderView
+                        android:id="@+id/imageSlider"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        app:sliderAnimationDuration="600"
+                        app:sliderAutoCycleDirection="back_and_forth"
+                        app:sliderAutoCycleEnabled="true"
+                        app:sliderIndicatorAnimationDuration="600"
+                        app:sliderIndicatorGravity="center_horizontal|bottom"
+                        app:sliderIndicatorMargin="15dp"
+                        app:sliderIndicatorOrientation="horizontal"
+                        app:sliderIndicatorPadding="3dp"
+                        app:sliderIndicatorRadius="2dp"
+                        app:sliderIndicatorSelectedColor="#5A5A5A"
+                        app:sliderIndicatorUnselectedColor="#FFF"
+                        app:sliderScrollTimeInSec="1"
+                        app:sliderStartAutoCycle="true"
+                        tools:ignore="MissingClass" />-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginEnd="15dp"
-                        android:text="@string/view_all" />
-                </RelativeLayout>
+                </androidx.cardview.widget.CardView>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcvFamousPlacesHome"
-                    android:layout_width="match_parent"
+                <LinearLayout
+                    android:id="@+id/rvs"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:listitem="@layout/feaatured_card_design_home"/>
+                    android:orientation="vertical">
+
+                    <include
+                        android:id="@+id/rvCity"
+                        layout="@layout/item_rv_horizontal"
+                        android:visibility="visible"/>
+
+
+                    <include
+                        android:id="@+id/rvDevotion"
+                        layout="@layout/item_rv_horizontal" />
+
+                    <include
+                        android:id="@+id/shimmer1"
+                        layout="@layout/loading_block_home"
+                        android:visibility="gone" />
+
+                    <include
+                        android:id="@+id/rvFood"
+                        layout="@layout/item_rv_horizontal" />
+
+                    <include
+                        android:id="@+id/rvPlace"
+                        layout="@layout/item_rv_horizontal" />
+
+
+
+                </LinearLayout>
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:background="@color/lightwhite"
-                android:orientation="vertical">
+        </ScrollView>
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="sans-serif-medium"
-                        android:text="@string/delicious_delights"
-                        android:textAllCaps="true"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginEnd="15dp"
-                        android:text="@string/view_all" />
-                </RelativeLayout>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcvFamousFoodHome"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    tools:itemCount="5"
-                    tools:listitem="@layout/feaatured_card_design_home"/>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </ScrollView>
-
+        <ProgressBar
+            android:id="@+id/pbHome"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

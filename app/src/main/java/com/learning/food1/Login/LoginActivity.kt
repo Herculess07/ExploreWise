@@ -22,11 +22,11 @@ class LoginActivity : AppCompatActivity() {
         setContentView(bindingL.root)
 
         auth = FirebaseAuth.getInstance()
-
+        init()
     }
 
-    override fun onStart() {
-        super.onStart()
+
+    private fun init(){
         bindingL.btnLogin.setOnClickListener {
             validPassword()
             loginUser()

@@ -1,9 +1,9 @@
 package com.learning.food1.Login
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.learning.food1.Main.MainActivity
 import com.learning.food1.databinding.ActivitySignupBinding
@@ -22,10 +22,10 @@ class SignupActivity : AppCompatActivity() {
 
         // Initialising auth object
         auth = FirebaseAuth.getInstance()
-
+        init()
     }
 
-    override fun onStart() {
+    private fun init() {
         super.onStart()
         bindingS.btnSSignUp.setOnClickListener {
             signUpUser()

@@ -1,184 +1,288 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layoutAddItem"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".AddFamous.AddFamousFood">
+    android:layout_height="match_parent">
 
-    <LinearLayout
+
+    <ScrollView
+        android:id="@+id/layoutAddItem"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp">
-
-        <TextView
-            android:id="@+id/tvHeadingFamousFood"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Add Famous Food"
-            android:textColor="#2196F3"
-            android:textSize="30sp" />
-
-        <EditText
-            android:id="@+id/etPlaceNameFamousFood"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#2196F3"
-            android:hint="Enter Famous Food Name" />
-
-        <EditText
-            android:id="@+id/etAboutFamousFood"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#2196F3"
-            android:hint="About Famous Food" />
-
-        <Button
-            android:id="@+id/btnUploadImageFood"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:backgroundTint="#2196F3"
-            android:text="Add Image"
-            android:textColor="@android:color/white"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/tvImgNamePreviewFood"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textSize="18sp"
-            android:text="Image Name" />
-
-        <TextView
-            android:id="@+id/tvAddressFamousFood"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:text="Address"
-            android:textColor="#2196F3"
-            android:textSize="22sp" />
-
-        <EditText
-            android:id="@+id/etAreaFamousFood"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#2196F3"
-            android:hint="Area" />
-
-        <EditText
-            android:id="@+id/etAdditionalFamousFood"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#2196F3"
-            android:hint="Additional Address Info" />
-
-
-        <Spinner
-            android:id="@+id/spSelectCityNameFood"
-            android:layout_width="match_parent"
-            android:layout_marginTop="16dp"
-            android:layout_height="50dp"
-            android:padding="8dp"
-            android:backgroundTint="#2196F3"
-            android:spinnerMode="dropdown" />
-
-        <TextView
-            android:id="@+id/etStateFamousFood"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:padding="8dp"
-            android:textSize="20sp"
-            android:backgroundTint="#2196F3"
-            android:text="Gujarat" />
-
-        <EditText
-            android:id="@+id/etPostalCodeFamousFood"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#2196F3"
-            android:hint="Postal Code"
-            android:inputType="textPostalAddress" />
-
-        <TextView
-            android:id="@+id/tvContactInfoFamousFood"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:text="Contact Information for Place"
-            android:textColor="#2196F3"
-            android:textSize="22sp" />
-
-        <EditText
-            android:id="@+id/etContactNumberFamousFood"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#2196F3"
-            android:hint="Enter Contact Number"
-            android:inputType="number"
-            android:maxLength="10"/>
-
-        <EditText
-            android:id="@+id/etEmailFamousFood"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#2196F3"
-            android:hint="Enter Email Address"
-            android:inputType="textEmailAddress"/>
-
-        <EditText
-            android:id="@+id/etWebsiteFamousFood"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#2196F3"
-            android:hint="Website URL"
-            android:inputType="textUri"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".AddFamous.AddFamousFood">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <Button
-                android:id="@+id/btnSubmitFood"
+            <TextView
+                android:id="@+id/tvHeadingFood"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginEnd="10dp"
-                android:layout_weight="1"
-                android:backgroundTint="#118F16"
-                android:text="Add Food"
-                android:textSize="18sp" />
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/add_famous_food"
+                android:textColor="@color/teal_200"
+                android:textSize="30sp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etContPlaceNameFood"
+                style="@style/container_err">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPlaceNameFood"
+                    style="@style/basic_view"
+                    android:hint="@string/enter_famous_food_name" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etContAboutFood"
+                style="@style/container_err">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAboutFood"
+                    style="@style/basic_view"
+                    android:hint="@string/about_food"
+                    android:inputType="textMultiLine" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/btnCancelFood"
+                android:id="@+id/btnUploadImageFood"
+                style="@style/button"
+                android:text="@string/add_image"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvImgNamePreviewFood"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="10dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/black"
-                android:text="Cancel"
+                android:layout_gravity="center"
+                android:text="@string/image_name"
+                android:textSize="18sp"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/imageViewAddFood"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:background="@color/grey"
+                android:contentDescription="@string/image_cont_des" />
+
+            <TextView
+                android:id="@+id/tvAddressFood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/address"
+                android:textSize="@dimen/_20sdp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etContAreaFood"
+                style="@style/container_err">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAreaFood"
+                    style="@style/basic_view"
+                    android:hint="@string/area"
+                    android:inputType="textMultiLine" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etContAdditionalFood"
+                style="@style/container">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etAdditionalFood"
+                    style="@style/basic_view"
+                    android:hint="@string/additional_address_info"
+                    android:lines="2" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/spContSelectCityNameFood"
+                    style="@style/container_err_2">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/spSelectCityNameFood"
+                        style="@style/basic_view"
+                        android:hint="@string/city"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/etContStateFood"
+                    style="@style/container_err_2">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etStateFood"
+                        style="@style/basic_view"
+                        android:hint="@string/state"
+                        android:inputType="text"
+                        android:text="@string/gujarat" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etContPostalCodeFood"
+                style="@style/container_err">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPostalCodeFood"
+                    style="@style/basic_view"
+                    android:hint="@string/postal_code"
+                    android:inputType="textPostalAddress" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <fragment
+                android:id="@+id/fragment_tiny_map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_margin="12dp" />
+
+            <TextView
+                android:id="@+id/tvRedirectLatLngFood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/lat_long_picker"
+                android:textColor="@color/textColorPrimary"
                 android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/etContLatitudeFood"
+                    style="@style/container_err_2">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etLatitudeFood"
+                        style="@style/basic_view"
+                        android:hint="@string/latitude"
+                        android:inputType="number" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/etContLongitudeFood"
+                    style="@style/container_err_2">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etLongitudeFood"
+                        style="@style/basic_view"
+                        android:hint="@string/longitude"
+                        android:inputType="number" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvContactInfoFood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/contact_information_for_place"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="@dimen/_20sdp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etContContactNumberFood"
+                style="@style/container"
+                app:counterMaxLength="10">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etContactNumberFood"
+                    style="@style/basic_view"
+                    android:hint="@string/enter_contact_number"
+                    android:inputType="phone"
+                    android:maxLength="10" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etContEmailFood"
+                style="@style/container">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEmailFood"
+                    style="@style/basic_view"
+                    android:hint="@string/enter_email_address"
+                    android:inputType="textEmailAddress"
+                    android:textSize="18sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etContWebsiteFood"
+                style="@style/container">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etWebsiteFood"
+                    style="@style/basic_view"
+                    android:hint="@string/website_url"
+                    android:inputType="textUri"
+                    android:textSize="18sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnSubmitFood"
+                    style="@style/button"
+                    android:text="@string/add_devotional_place"
+                    android:textColor="@color/grey" />
+
+                <Button
+                    android:id="@+id/btnCancelFood"
+                    style="@style/button"
+                    android:backgroundTint="@color/red"
+                    android:text="@string/cancel" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
-    </LinearLayout>
+    </ScrollView>
 
-</ScrollView>
+    <ProgressBar
+        android:id="@+id/pbFood"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
