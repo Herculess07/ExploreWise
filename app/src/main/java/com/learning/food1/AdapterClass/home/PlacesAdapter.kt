@@ -14,7 +14,6 @@ import com.learning.food1.Model.home.Places
 import com.learning.food1.R
 
 class PlacesAdapter(
-
     val context: Context,
     private val model: ArrayList<Places>,
     val cb: PlacesInterface,
@@ -53,7 +52,7 @@ class PlacesAdapter(
 
         }
     }
-
+    
     val limit = 10
     override fun getItemCount(): Int {
 

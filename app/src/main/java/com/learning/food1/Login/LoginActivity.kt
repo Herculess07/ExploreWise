@@ -13,26 +13,25 @@ import com.learning.food1.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var bindingL: ActivityLoginBinding
+    private lateinit var m: ActivityLoginBinding
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        bindingL = ActivityLoginBinding.inflate(layoutInflater)
-        setContentView(bindingL.root)
+        m = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(m.root)
 
         auth = FirebaseAuth.getInstance()
         init()
     }
 
-
     private fun init(){
-        bindingL.btnLogin.setOnClickListener {
+        m.btnLogin.setOnClickListener {
             validPassword()
             loginUser()
         }
 
-        bindingL.tvRedirectSignUp.setOnClickListener {
+        m.tvRedirectSignUp.setOnClickListener {
             val intent = Intent(this, SignupActivity::class.java)
             startActivity(intent)
             finish()
@@ -45,7 +44,6 @@ class LoginActivity : AppCompatActivity() {
         }
 
     }
-
 
     // checking for internet connection
     private fun checkForInternet(context: Context): Boolean {
@@ -65,10 +63,10 @@ class LoginActivity : AppCompatActivity() {
 
     // login function
     private fun loginUser() {
-        val email = bindingL.etLoginEmailAddress.text.toString()
-        val pass = bindingL.etLoginPassword.text.toString()
-        val sharedPref = getSharedPreferences("com.learning.food1", Context.MODE_PRIVATE)
-        val editor = sharedPref.edit()
+        val email = m.etLoginEmailAddress.text.toString()
+        val pass = m.etLoginPassword.text.toString()
+        // val sharedPref = getSharedPreferences("com.learning.food1", Context.MODE_PRIVATE)
+        // val editor = sharedPref.edit()
         // calling signInWithEmailAndPassword(email, pass)
         // function using Firebase auth object
         // On successful response Display a Toast
@@ -104,7 +102,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun validPassword(): String? {
-        val passwordText = bindingL.etLoginPassword.text.toString()
+        val passwordText = m.etLoginPassword.text.toString()
         if(passwordText.length < 8) {
             return "Minimum 8 Character Password"
         }

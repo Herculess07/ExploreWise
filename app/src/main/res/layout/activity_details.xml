@@ -1,51 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Main.DetailsActivity">
 
-    <LinearLayout
+    <include
+        android:id="@+id/ab"
+        layout="@layout/item_action_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_margin="10dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ab">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/imageDetails"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true"
-            android:layout_margin="5dp"
-            app:srcCompat="@drawable/baseline_image_24" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/titleDetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="25sp"
-            android:layout_margin="5dp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
-            android:text="@string/logo_name" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:layout_marginVertical="@dimen/_4sdp"
+                app:cardCornerRadius="@dimen/_12sdp"
+                app:cardElevation="@dimen/_10sdp">
 
-        <TextView
-            android:id="@+id/descriptionDetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:text="@string/featured_locations_descriptions" />
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imageDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_200sdp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/baseline_image_24" />
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/mapDetails"
-            android:name="com.google.android.gms.maps.SupportMapFragment"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_200sdp"
-            android:layout_margin="5dp" />
-    </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-</ScrollView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:layout_marginVertical="@dimen/_4sdp"
+                app:cardCornerRadius="@dimen/_12sdp"
+                app:cardElevation="@dimen/_10sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_8sdp">
+
+                    <TextView
+                        android:id="@+id/titleDetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:fontFamily="sans-serif"
+                        android:text="@string/logo_name"
+                        android:textColor="@color/black"
+                        android:textSize="28sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/imgCity"
+                            android:layout_width="@dimen/_22sdp"
+                            android:layout_height="@dimen/_22sdp"
+                            android:layout_gravity="center"
+                            android:background="?android:attr/selectableItemBackgroundBorderless"
+                            android:clickable="false"
+                            android:contentDescription="@string/location"
+                            android:focusable="true"
+                            android:src="@drawable/baseline_map_24" />
+
+                        <TextView
+                            android:id="@+id/cityDetails"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="5dp"
+                            android:text="@string/city"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_5sdp" />
+
+                    <TextView
+                        android:id="@+id/descriptionDetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:text="@string/featured_locations_descriptions"
+                        android:textColor="@color/black"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/addressDetailsHead"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:text="@string/address"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/imgArea"
+                            android:layout_width="@dimen/_22sdp"
+                            android:layout_height="@dimen/_22sdp"
+                            android:layout_gravity="top"
+                            android:layout_marginTop="5dp"
+                            android:background="?android:attr/selectableItemBackgroundBorderless"
+                            android:clickable="false"
+                            android:contentDescription="@string/location"
+                            android:focusable="true"
+                            android:src="@drawable/baseline_location_on_24" />
+
+                        <TextView
+                            android:id="@+id/areaDetails"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:text="@string/area"
+                            android:textColor="@color/black"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_7sdp" />
+
+                    <androidx.fragment.app.FragmentContainerView
+                        android:id="@+id/mapDetails"
+                        android:name="com.google.android.gms.maps.SupportMapFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_200sdp"
+                        android:layout_margin="5dp" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

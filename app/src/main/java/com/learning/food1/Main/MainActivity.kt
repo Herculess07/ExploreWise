@@ -3,10 +3,11 @@ package com.learning.food1.Main
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.learning.food1.AppUtils
@@ -17,8 +18,9 @@ import com.learning.food1.BottomNavFragments.SettingsFragment
 import com.learning.food1.Login.LoginActivity
 import com.learning.food1.R
 import com.learning.food1.databinding.ActivityMainBinding
+import kotlin.system.exitProcess
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
     private lateinit var b: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
@@ -39,8 +41,47 @@ class MainActivity : AppCompatActivity() {
         b.botNavView.background
         b.botNavView.menu.getItem(2).isEnabled = true
         init()
+    }
+
+    private val onBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            showDialog()
+        }
+    }
+
+    private fun showDialog() {
+        val dialogM = MaterialAlertDialogBuilder(this)
+
+        dialogM.setTitle("Exit")
+        dialogM.setMessage("Are You Sure to Want to Exit ?")
+        dialogM.setCancelable(true)
+        dialogM.setIcon(R.drawable.baseline_exit_to_app_24)
+        dialogM.setPositiveButton("Yes") { _, _ ->
+            finish()
+            exitProcess(0)
+        }
+        dialogM.setNegativeButton("No") { _, _ ->
+
+        }
+
+        dialogM.show()
+
+        /*val dialog = AlertDialog.Builder(this)
+        dialog.setTitle("Exit")
+        dialog.setMessage("Are You Sure to Want to Exit ?")
+        dialog.setCancelable(true)
+        dialog.setIcon(R.drawable.baseline_exit_to_app_24)
+        dialog.setPositiveButton("Yes") { _, _ ->
+            finish()
+            exitProcess(0)
+        }
+        dialog.setNegativeButton("No") { _, _ ->
+
+        }
+        dialog.show()*/
 
     }
+
 
     private fun init() {
         appUtils.replaceFragment(this, HomeFragment(), R.id.frameLayout)
@@ -52,6 +93,7 @@ class MainActivity : AppCompatActivity() {
             bottomSheet.show(supportFragmentManager, bottomSheet.tag)
         }
 
+        onBackPressedDispatcher.addCallback(this, onBackPressedCallback)
 
     }
 

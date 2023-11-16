@@ -2,16 +2,15 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/containerBotNav"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/containerBotNav"
     tools:context=".Main.MainActivity">
 
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:padding="1dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         app:layout_constraintBottom_toTopOf="@+id/appBar"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,17 +20,20 @@
         tools:showIn="@layout/activity_main">
 
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/imgAdd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|right"
-                android:layout_margin="16dp"
-                android:contentDescription="@string/add_image"
-                app:maxImageSize="@dimen/_25sdp"
-                app:srcCompat="@drawable/baseline_add_24"
-                tools:ignore="RtlHardcoded" />
-
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/imgAdd"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/_12sdp"
+            android:contentDescription="@string/add_image"
+            android:scaleType="center"
+            app:maxImageSize="@dimen/_22sdp"
+            android:clickable="true"
+            android:src="@drawable/baseline_add_24"
+            app:fabSize="normal"
+            app:fabCustomSize="@dimen/_40sdp"
+            app:srcCompat="@drawable/baseline_add_24" />
 
     </FrameLayout>
 

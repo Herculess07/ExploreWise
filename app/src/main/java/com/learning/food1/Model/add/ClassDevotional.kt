@@ -1,7 +1,6 @@
 package com.learning.food1.Model.add
 
 data class ClassDevotional(
-    // string variable for storing
     val devPlaceID: String? = null,
     val devotional_name: String? = null,
     val devotional_about: String? = null,

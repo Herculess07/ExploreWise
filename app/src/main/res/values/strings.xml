@@ -37,6 +37,7 @@
     <string name="about_food">About Famous Food</string>
     <string name="about_place">About Famous Place</string>
     <string name="add_image">Add Image</string>
+    <string name="back">Back</string>
     <string name="image_name">Image Name</string>
     <string name="image_cont_des">Uploaded Image</string>
     <string name="address">Address</string>
@@ -67,11 +68,12 @@
     <string name="food">Food</string>
     <string name="devotional">Devotional</string>
     <string name="place">Place</string>
+    <string name="details">Details</string>
     <string name="featured_locations">Famous From Your City</string>
     <string name="featured_locations_descriptions">This is featured city of the day you will find.</string>
-    <string name="most_visited_cities">MOST VISITED CITIES</string>
+    <string name="most_visited_cities">Famous Cities</string>
     <string name="most_visited_devotion">Devotional Places</string>
-    <string name="most_visited_places">Famous Places</string>
+    <string name="most_visited_places">Hot Places</string>
     <string name="delicious_delights">Delicious Delights</string>
     <string name="view_all">View All</string>
     <string name="choose_option">Choose Option :</string>
