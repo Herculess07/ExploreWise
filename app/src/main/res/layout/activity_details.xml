@@ -68,7 +68,7 @@
                         android:layout_margin="5dp"
                         android:fontFamily="sans-serif"
                         android:text="@string/logo_name"
-                        android:textColor="@color/black"
+                        android:textColor="@color/colorPrimaryDark"
                         android:textSize="28sp"
                         android:textStyle="bold" />
 
@@ -94,23 +94,24 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_margin="5dp"
+                            android:textColor="@color/colorPrimaryDark"
                             android:text="@string/city"
-                            android:textColor="@color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
                     </LinearLayout>
 
                     <View
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/_5sdp" />
+                        android:layout_height="@dimen/_4sdp" />
 
                     <TextView
                         android:id="@+id/descriptionDetails"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/colorAccent"
                         android:layout_margin="5dp"
+                        android:fontFamily="sans-serif"
                         android:text="@string/featured_locations_descriptions"
-                        android:textColor="@color/black"
                         android:textSize="20sp" />
 
                     <TextView
@@ -120,7 +121,7 @@
                         android:layout_gravity="center"
                         android:layout_margin="5dp"
                         android:text="@string/address"
-                        android:textColor="@color/black"
+                        android:textColor="@color/colorPrimaryDark"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
@@ -146,8 +147,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp"
+                            android:fontFamily="sans-serif"
+                            android:textColor="@color/colorAccent"
                             android:text="@string/area"
-                            android:textColor="@color/black"
                             android:textSize="20sp" />
 
                     </LinearLayout>
@@ -155,6 +157,9 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_7sdp" />
+
+
+
 
                     <androidx.fragment.app.FragmentContainerView
                         android:id="@+id/mapDetails"

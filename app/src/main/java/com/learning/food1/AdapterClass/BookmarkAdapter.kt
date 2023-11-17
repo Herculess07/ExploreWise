@@ -41,7 +41,7 @@ class BookmarkAdapter(private val mList: List<BookmarkRecyclerVModel>) : Recycle
 
     // Holds the views for adding it to image and text
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imageView: ImageView = this.itemView.findViewById(R.id.imageViewBookmarkDesign)
-        val textView: TextView = this.itemView.findViewById(R.id.textViewBookmarkDesign)
+        val imageView: ImageView = this.itemView.findViewById(R.id.imgTitle)
+        val textView: TextView = this.itemView.findViewById(R.id.txtItemName)
     }
 }

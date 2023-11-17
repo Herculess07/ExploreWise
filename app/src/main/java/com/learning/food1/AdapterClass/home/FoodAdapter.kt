@@ -1,5 +1,6 @@
 package com.learning.food1.AdapterClass.home
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -8,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.learning.food1.Configs
 import com.learning.food1.Interfaces.home.FoodInterface
 import com.learning.food1.Model.home.Food
-import com.learning.food1.databinding.FeaaturedCardDesignHomeBinding
+import com.learning.food1.databinding.ItemFoodCardBinding
 
 class FoodAdapter(
     val context: Context,
@@ -16,16 +17,17 @@ class FoodAdapter(
     private val cb: FoodInterface,
 ) :
     RecyclerView.Adapter<FoodAdapter.FoodBinding>() {
-    val config = Configs()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodBinding {
-        val b = FeaaturedCardDesignHomeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val b = ItemFoodCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return FoodBinding(b)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: FoodBinding, position: Int) {
         val model = mList[position]
-        holder.b.txtCityName.text = model.food_name
+        holder.b.txtFoodName.text = model.food_name
+        holder.b.txtCityState.text = "${model.food_city}, ${model.food_state}"
 
         val imgId = model.famFoodID
         val imageUrl =
@@ -51,6 +53,6 @@ class FoodAdapter(
     }
 
 
-    class FoodBinding(var b: FeaaturedCardDesignHomeBinding) :
+    class FoodBinding(var b: ItemFoodCardBinding) :
         RecyclerView.ViewHolder(b.root)
 }

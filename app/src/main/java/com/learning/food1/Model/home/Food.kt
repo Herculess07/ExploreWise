@@ -7,4 +7,6 @@ data class Food(
     val food_name: String? = null,
     val food_image: ImageView? = null,
     val food_image_name: String? = null,
+    val food_city: String? = null,
+    val food_state: String? = null,
 )

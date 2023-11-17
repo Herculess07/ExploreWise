@@ -1,5 +1,6 @@
 package com.learning.food1.BottomNavFragments
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.models.SlideModel
@@ -28,6 +30,7 @@ import com.learning.food1.Interfaces.home.HomeInterface
 import com.learning.food1.Interfaces.home.PlacesInterface
 import com.learning.food1.Main.BaseFragment
 import com.learning.food1.Main.DetailsActivity
+import com.learning.food1.Main.FamousItemsOfCityActivity
 import com.learning.food1.Main.SearchActivity
 import com.learning.food1.Model.home.ClassVisitedCitiesHome
 import com.learning.food1.Model.home.Devotion
@@ -35,6 +38,7 @@ import com.learning.food1.Model.home.Food
 import com.learning.food1.Model.home.Places
 import com.learning.food1.R
 import com.learning.food1.databinding.TryHomeLayoutBinding
+
 
 class HomeFragment : Fragment() {
     private lateinit var m: TryHomeLayoutBinding
@@ -60,9 +64,11 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        // view binding
-        m = TryHomeLayoutBinding.inflate(inflater, container, false)
-        /*m = DataBindingUtil.inflate(inflater, R.layout.try_home_layout, container, false)*/
+        m = TryHomeLayoutBinding.inflate(
+            inflater,
+            container,
+            false
+        )
         return m.root
     }
 
@@ -78,15 +84,43 @@ class HomeFragment : Fragment() {
             m.rvPlace.txtRvHeader.setOnClickListener { smoothScrollPlace() }
             m.rvFood.txtRvHeader.setOnClickListener { smoothScrollFood() }
 
+            m.rvPlace.txtViewAll.setOnClickListener {
+                replaceFragment(ViewAllFragment(), requireContext())
+
+
+            }
+
             initAdapters()
             initSetUpText()
             autoImageSlider()
+
+
+
             m.homeSearchView.setOnClickListener {
                 val intent = Intent(requireContext(), SearchActivity::class.java)
                 startActivity(intent)
             }
 
 
+        }
+    }
+
+    private fun replaceFragment(fragment: Fragment, context: Context) {
+        if (context is FragmentActivity) {
+            val fragmentManager = context.supportFragmentManager
+            fragmentManager.beginTransaction()
+                .add(R.id.try_home_fragment, fragment)
+                .setCustomAnimations(
+                    R.anim.anim_enter,
+                    R.anim.anim_exit
+                )
+                .addToBackStack(fragment.javaClass.name)
+                .commit()
+
+
+        } else {
+            // Handle the case where the context is not a FragmentActivity
+            // This could happen if the context is not the expected type.
         }
     }
 
@@ -132,18 +166,21 @@ class HomeFragment : Fragment() {
         isLoading = true
         m.pbHome.visibility = View.VISIBLE
         m.rvs.visibility = View.GONE
+        m.imageSlider.visibility = View.GONE
     }
 
     private fun hideLoading() {
         isLoading = false
         m.pbHome.visibility = View.GONE
         m.rvs.visibility = View.VISIBLE
+        m.imageSlider.visibility = View.VISIBLE
     }
 
     private fun getCitiesData() {
         citiesArrayList = ArrayList()
         showLoading()
         fdb = FirebaseDatabase.getInstance().reference
+
 
         dbRef = fdb.child("Users/DevotionalPlaces")
         dbRef.addValueEventListener(object : ValueEventListener {
@@ -156,28 +193,31 @@ class HomeFragment : Fragment() {
                                     placeSnapshot.getValue(ClassVisitedCitiesHome::class.java)
                                 citiesArrayList.add(city!!)
                             }
-                            val itemsAdapter =
-                                HomeAdapter(citiesArrayList, object : HomeInterface {
-                                    override fun onCityClicked(
-                                        model: ClassVisitedCitiesHome,
-                                        position: Int,
-                                    ) {
-                                        Toast.makeText(
-                                            requireContext(),
-                                            "${model.devotional_city}",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
-                                    }
-                                })
+                            val itemsAdapter = HomeAdapter(citiesArrayList, object : HomeInterface {
+                                override fun onCityClicked(
+                                    model: ClassVisitedCitiesHome,
+                                    position: Int,
+                                ) {
+                                    val i = Intent(
+                                        context,
+                                        FamousItemsOfCityActivity::class.java
+                                    )
+                                    i.putExtra(config.KEY_ID, model.devPlaceID)
+                                    i.putExtra(config.KEY_CITY, model.devotional_city)
+                                    startActivity(i)
+                                    /*Toast.makeText(
+                                        requireContext(),
+                                        "${model.devotional_city}",
+                                        Toast.LENGTH_SHORT
+                                    ).show()*/
+                                }
+                            })
                             m.rvCity.rv.adapter = itemsAdapter
                             itemsAdapter.notifyItemInserted(citiesArrayList.size - 1)
                         } catch (e: Exception) {
                             Toast.makeText(
-                                requireContext(),
-                                e.message.toString(),
-                                Toast.LENGTH_SHORT
-                            )
-                                .show()
+                                requireContext(), e.message.toString(), Toast.LENGTH_SHORT
+                            ).show()
                             e.printStackTrace()
                         }
                     } else {
@@ -212,48 +252,41 @@ class HomeFragment : Fragment() {
                                         devSnapshot.getValue(Devotion::class.java)
                                     devotionArrayList.add(place!!)
                                 }
-                                val itemsAdapter =
-                                    DevotionAdapter(
-                                        requireContext(),
-                                        devotionArrayList,
-                                        object : DevotionInterface {
-                                            override fun onDevPlaceClicked(
-                                                model: Devotion,
-                                                position: Int,
-                                            ) {
-                                                val i = Intent(context, DetailsActivity::class.java)
-                                                /*i.putExtra(config.KEY_PLACE, model.place_name)*/
-                                                i.putExtra(config.DEVOTION_ID, model.devPlaceID)
-                                                requireActivity().startActivity(i)
+                                val itemsAdapter = DevotionAdapter(requireContext(),
+                                    devotionArrayList,
+                                    object : DevotionInterface {
+                                        override fun onDevPlaceClicked(
+                                            model: Devotion,
+                                            position: Int,
+                                        ) {
+                                            val i = Intent(
+                                                context,
+                                                DetailsActivity::class.java
+                                            )/*i.putExtra(config.KEY_PLACE, model.place_name)*/
+                                            i.putExtra(config.DEVOTION_ID, model.devPlaceID)
+                                            requireActivity().startActivity(i)
 
-                                            }
-                                        })
+                                        }
+                                    })
                                 m.rvDevotion.rv.adapter = itemsAdapter
                                 itemsAdapter.notifyItemInserted(devotionArrayList.size - 1)
                             } catch (e: Exception) {
                                 Toast.makeText(
-                                    requireContext(),
-                                    e.message.toString(),
-                                    Toast.LENGTH_SHORT
-                                )
-                                    .show()
+                                    requireContext(), e.message.toString(), Toast.LENGTH_SHORT
+                                ).show()
                                 e.printStackTrace()
                             }
                         } else {
                             Toast.makeText(
-                                requireContext(),
-                                "No data available",
-                                Toast.LENGTH_SHORT
-                            )
-                                .show()
+                                requireContext(), "No data available", Toast.LENGTH_SHORT
+                            ).show()
                         }
                         hideLoading()
                     }
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    Toast.makeText(requireContext(), error.toString(), Toast.LENGTH_SHORT)
-                        .show()
+                    Toast.makeText(requireContext(), error.toString(), Toast.LENGTH_SHORT).show()
                 }
             })
         } catch (e: Exception) {
@@ -281,43 +314,40 @@ class HomeFragment : Fragment() {
                                         famPlaceSnapshot.getValue(Places::class.java)
                                     famPlaceArrayList.add(famPlace!!)
                                 }
-                                val itemsAdapter =
-                                    PlacesAdapter(requireContext(), famPlaceArrayList,
-                                        object : PlacesInterface {
-                                            override fun onPlaceClicked(
-                                                model: Places,
-                                                position: Int,
-                                            ) {
-                                                val i =
-                                                    Intent(context, DetailsActivity::class.java)
-                                                /*i.putExtra(config.KEY_PLACE, model.place_name)*/
-                                                i.putExtra(config.PLACE_ID, model.famPlaceID)
-                                                requireActivity().startActivity(i)
-                                            }
+                                val itemsAdapter = PlacesAdapter(
+                                    requireContext(),
+                                    famPlaceArrayList,
+                                    object : PlacesInterface {
+                                        override fun onPlaceClicked(
+                                            model: Places,
+                                            position: Int,
+                                        ) {
+                                            val i = Intent(
+                                                context,
+                                                DetailsActivity::class.java
+                                            )/*i.putExtra(config.KEY_PLACE, model.place_name)*/
+                                            i.putExtra(config.PLACE_ID, model.famPlaceID)
+                                            requireActivity().startActivity(i)
+                                        }
 
-                                        })
+                                    })
                                 m.rvPlace.rv.adapter = itemsAdapter
                                 itemsAdapter.notifyItemInserted(famPlaceArrayList.size - 1)
                             } else {
                                 Toast.makeText(
-                                    requireContext(),
-                                    "No data available",
-                                    Toast.LENGTH_SHORT
-                                )
-                                    .show()
+                                    requireContext(), "No data available", Toast.LENGTH_SHORT
+                                ).show()
                             }
                             hideLoading()
                         }
                     } catch (e: Exception) {
-                        Toast.makeText(requireContext(), e.toString(), Toast.LENGTH_SHORT)
-                            .show()
+                        Toast.makeText(requireContext(), e.toString(), Toast.LENGTH_SHORT).show()
                         Log.d("CATCH", e.message.toString())
                     }
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    Toast.makeText(requireContext(), error.toString(), Toast.LENGTH_SHORT)
-                        .show()
+                    Toast.makeText(requireContext(), error.toString(), Toast.LENGTH_SHORT).show()
                 }
             })
         } catch (e: Exception) {
@@ -334,46 +364,41 @@ class HomeFragment : Fragment() {
         try {
             dbRef = fdb.child("Users/FamousFood")
             dbRef.addValueEventListener(object : ValueEventListener {
-                    override fun onDataChange(snapshot: DataSnapshot) {
-                        if (isAdded && activity != null && !requireActivity().isDestroyed && !requireActivity().isFinishing) {
-                            if (snapshot.exists()) {
-                                for (famFoodSnapshot in snapshot.children) {
-                                    val famFood: Food =
-                                        famFoodSnapshot.getValue(Food::class.java)!!
-                                    foodArrayList.add(famFood)
-                                }
-                                val itemsAdapter =
-                                    FoodAdapter(
-                                        requireContext(),
-                                        foodArrayList,
-                                        object : FoodInterface {
-                                            override fun onFoodClicked(model: Food, position: Int) {
-                                                val i = Intent(context, DetailsActivity::class.java)
-                                                /*i.putExtra(config.KEY_PLACE, model.place_name)*/
-                                                i.putExtra(config.FOOD_ID, model.famFoodID)
-                                                requireActivity().startActivity(i)
-                                            }
-
-                                        })
-                                m.rvFood.rv.adapter = itemsAdapter
-                                itemsAdapter.notifyItemInserted(foodArrayList.size - 1)
-                            } else {
-                                Toast.makeText(
-                                    requireContext(),
-                                    "No data available",
-                                    Toast.LENGTH_SHORT
-                                )
-                                    .show()
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (isAdded && activity != null && !requireActivity().isDestroyed && !requireActivity().isFinishing) {
+                        if (snapshot.exists()) {
+                            for (famFoodSnapshot in snapshot.children) {
+                                val famFood: Food = famFoodSnapshot.getValue(Food::class.java)!!
+                                foodArrayList.add(famFood)
                             }
-                            hideLoading()
-                        }
-                    }
+                            val itemsAdapter = FoodAdapter(requireContext(),
+                                foodArrayList,
+                                object : FoodInterface {
+                                    override fun onFoodClicked(model: Food, position: Int) {
+                                        val i = Intent(
+                                            context,
+                                            DetailsActivity::class.java
+                                        )/*i.putExtra(config.KEY_PLACE, model.place_name)*/
+                                        i.putExtra(config.FOOD_ID, model.famFoodID)
+                                        requireActivity().startActivity(i)
+                                    }
 
-                    override fun onCancelled(error: DatabaseError) {
-                        Toast.makeText(requireContext(), error.toString(), Toast.LENGTH_SHORT)
-                            .show()
+                                })
+                            m.rvFood.rv.adapter = itemsAdapter
+                            itemsAdapter.notifyItemInserted(foodArrayList.size - 1)
+                        } else {
+                            Toast.makeText(
+                                requireContext(), "No data available", Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                        hideLoading()
                     }
-                })
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Toast.makeText(requireContext(), error.toString(), Toast.LENGTH_SHORT).show()
+                }
+            })
         } catch (e: Exception) {
             Toast.makeText(requireContext(), e.message.toString(), Toast.LENGTH_SHORT).show()
             Log.d("CATCH", e.message.toString())
@@ -425,6 +450,11 @@ class HomeFragment : Fragment() {
 
     private fun smoothScrollFood() {
         m.rvFood.rv.smoothScrollToPosition(0)
+    }
+
+
+    companion object {
+        const val TAG = "HomeFragment"
     }
 
 }

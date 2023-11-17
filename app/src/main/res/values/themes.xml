@@ -74,4 +74,9 @@
 
     </style>
 
+    <style name="radius12" parent="Theme.Material3.DayNight">
+        <item name="android:background">@drawable/bg_radius_white_25</item>
+        <item name="android:radius">@dimen/_12sdp</item>
+    </style>
+
 </resources>

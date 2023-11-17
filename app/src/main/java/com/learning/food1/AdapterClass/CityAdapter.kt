@@ -1,62 +1,63 @@
 package com.learning.food1.AdapterClass
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.firebase.ui.database.FirebaseRecyclerAdapter
-import com.firebase.ui.database.FirebaseRecyclerOptions
+import com.bumptech.glide.Glide
 import com.learning.food1.Model.FamousOfCityModel
 import com.learning.food1.R
+import com.learning.food1.databinding.BookmarkCardViewDesignBinding
 
 //class HomeAdapter(val context : Context,private val mList: List<FamousOfCityModel>) :
 class CityAdapter(
-    options: FirebaseRecyclerOptions<FamousOfCityModel>
+    private val mList: ArrayList<FamousOfCityModel>
 ) :
-    FirebaseRecyclerAdapter<FamousOfCityModel, CityAdapter.ViewHolder>(options) {
+    RecyclerView.Adapter<CityAdapter.CityItemsBinding>() {
 
     // Holds the views for adding it to image and text
-    class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
-        val imageView: ImageView = itemView.findViewById(R.id.imageViewFamousOfCityDesign)
-        val title: TextView = itemView.findViewById(R.id.titleFamousOfCityDesign)
-        val description: TextView = itemView.findViewById(R.id.descriptionTextView)
-        val bookmark: ImageView = itemView.findViewById(R.id.bookmarkFamousOfCityDesign)
 
-    }
 
     // create new views
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.activity_famous_item_of_city, parent, false)
-        return ViewHolder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CityItemsBinding {
+        val b = BookmarkCardViewDesignBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return CityItemsBinding(b)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(
-        holder: ViewHolder,
+        holder: CityItemsBinding,
         position: Int,
-        model: FamousOfCityModel,
     ) {
-        // holder.title.setText(model.image)
-        holder.imageView.setImageResource(model.image)
-        holder.title.text = model.devotional_name
-        holder.description.text = model.devotional_about
-        holder.bookmark.setOnClickListener {
+        val model = mList[position]
+
+        holder.b.txtItemName.text = model.devotional_name
+        holder.b.txtCityState.text = "${model.devotional_city}, ${model.devotional_state}"
+
+        val imgId = model.devPlaceID
+        val imageUrl = "https://firebasestorage.googleapis.com/v0/b/food-project-395207.appspot.com/o/Users%2FDevotionalPlaces%2F$imgId?alt=media"
+        Glide.with(holder.itemView.context)
+            .load(imageUrl)
+            .placeholder(R.drawable.skeleton)
+            .into(holder.b.imgTitle)
+
+        holder.b.bookmarkIcon.setOnClickListener {
             if (model.bookmark) {
-                holder.bookmark.setImageResource(R.drawable.baseline_bookmark_border_24)
+                holder.b.bookmarkIcon.setImageResource(R.drawable.baseline_bookmark_border_24)
                 model.bookmark = false
             } else {
-                holder.bookmark.setImageResource(R.drawable.baseline_bookmark_24)
+                holder.b.bookmarkIcon.setImageResource(R.drawable.baseline_bookmark_24)
                 model.bookmark = true
             }
         }
     }
 
-    // return the number of the items in the list
-   /* override fun getItemCount(): Int {
-        return itemCount
-    }*/
+
+    override fun getItemCount(): Int {
+        return mList.size
+    }
+
+    class CityItemsBinding(var b:BookmarkCardViewDesignBinding):RecyclerView.ViewHolder(b.root)
 
 
 }

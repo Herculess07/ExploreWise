@@ -27,22 +27,37 @@
         <activity
             android:name=".Main.SearchActivity"
             android:exported="false"
-            android:windowSoftInputMode="stateVisible" />
+            android:configChanges="screenSize"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".Main.DetailsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:configChanges="screenSize|keyboardHidden"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".AddFamous.AddFamousFood"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".AddFamous.AddFamousPlace"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".AddFamous.AddDevotionalPlace"
-            android:exported="false" /> <!-- Launcher Activity => Splash Screen -->
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" /> <!-- Launcher Activity => Splash Screen -->
         <activity
             android:name=".Main.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:configChanges="screenSize|keyboardHidden"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -51,13 +66,22 @@
         </activity>
         <activity
             android:name=".Login.SignupActivity"
-            android:exported="false" />
+            android:configChanges="screenSize"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".Login.LoginActivity"
-            android:exported="false" />
+            android:configChanges="screenSize"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".Main.FamousItemsOfCityActivity"
-            android:exported="false" />
+            android:configChanges="screenSize|keyboardHidden"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 

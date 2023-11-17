@@ -11,6 +11,8 @@
     <color name="purple">#673AB7</color>
     <color name="grey">#6F6E70</color>
     <color name="ELGrey">#CCCCCC</color>
+    <color name="ELGrey25">#E8E4E4</color>
+    <color name="ELGrey12">#EFEEEE</color>
 
     <color name="helperTextColor">#BA0404</color>
 
@@ -48,7 +50,7 @@
     <color name="colorPrimaryDark">#334B48</color>
 
     <!-- Accent color -->
-    <color name="colorAccent">#96B1AC</color>
+    <color name="colorAccent">#4D5856</color>
 
     <!-- Text color -->
     <color name="textColorPrimary">#334B48</color>

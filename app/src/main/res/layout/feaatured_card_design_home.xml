@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/_10sdp"
+    android:layout_margin="@dimen/_12sdp"
     app:cardCornerRadius="@dimen/_12sdp"
     app:cardElevation="@dimen/_5sdp"
+    app:strokeColor="@color/white"
+    app:strokeWidth="0dp"
     tools:ignore="MissingDefaultResource">
 
     <RelativeLayout
-        android:layout_width="@dimen/_165sdp"
-        android:layout_height="@dimen/_165sdp"
+        android:layout_width="@dimen/_175sdp"
+        android:layout_height="@dimen/_185sdp"
         tools:ignore="UselessParent">
 
         <ImageView
@@ -31,12 +33,11 @@
             android:layout_alignParentTop="false"
             android:layout_alignParentBottom="true"
             android:layout_margin="@dimen/_10sdp"
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_marginEnd="@dimen/_10sdp"
             android:fontFamily="sans-serif-black"
+            android:textStyle="bold"
             android:includeFontPadding="false"
             android:textColor="@color/white"
-            android:textSize="@dimen/_17sdp"
+            android:textSize="@dimen/_16ssp"
             tools:text="McDonald's" />
 
         <TextView
@@ -50,7 +51,7 @@
             android:includeFontPadding="false"
             android:paddingBottom="@dimen/_5sdp"
             android:textColor="@color/white"
-            android:textSize="@dimen/_12sdp"
+            android:textSize="@dimen/_12ssp"
             android:visibility="gone"
             tools:text="@string/delicious_delights" />
 
@@ -90,4 +91,4 @@ android:src="@drawable/skeleton"
              tools:text="@string/delicious_delights" />
 
      </RelativeLayout>-->
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

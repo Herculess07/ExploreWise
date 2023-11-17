@@ -2,7 +2,7 @@
 
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <corners android:radius="@dimen/search_bar_radius"/>
-    <stroke android:color="#302C2C"
+    <stroke android:color="@color/colorAccentNight"
         android:width="@dimen/search_bar_border_width"/>
 
 </shape>

@@ -12,17 +12,15 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.Toolbar
+        <include
             android:id="@+id/toolbarFamousOfCity"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="#334B48"
-            app:navigationIcon="@drawable/baseline_arrow_back_24"
-            app:title="City Name"
-            app:titleTextColor="@color/white" />
+            layout="@layout/item_action_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerviewFamousItemsOfCity"
+            android:id="@+id/rvItemCity"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:itemCount="20"
