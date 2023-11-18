@@ -203,7 +203,7 @@ class HomeFragment : Fragment() {
                                         FamousItemsOfCityActivity::class.java
                                     )
                                     i.putExtra(config.KEY_ID, model.devPlaceID)
-                                    i.putExtra(config.KEY_CITY, model.devotional_city)
+                                    i.putExtra(config.KEY_CITY, model.devotional_state)
                                     startActivity(i)
                                     /*Toast.makeText(
                                         requireContext(),
@@ -262,7 +262,7 @@ class HomeFragment : Fragment() {
                                             val i = Intent(
                                                 context,
                                                 DetailsActivity::class.java
-                                            )/*i.putExtra(config.KEY_PLACE, model.place_name)*/
+                                            )
                                             i.putExtra(config.DEVOTION_ID, model.devPlaceID)
                                             requireActivity().startActivity(i)
 

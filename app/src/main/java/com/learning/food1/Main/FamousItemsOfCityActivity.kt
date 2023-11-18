@@ -2,7 +2,6 @@ package com.learning.food1.Main
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.DataSnapshot
@@ -67,7 +66,7 @@ class FamousItemsOfCityActivity : AppCompatActivity() {
         fdb = FirebaseDatabase.getInstance().reference
 
         val query: Query = fdb.child("Users/DevotionalPlaces")
-            .orderByChild("devotional_city")
+            .orderByChild("devotional_state")
             .equalTo(cityName)
 
         query.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -75,14 +74,14 @@ class FamousItemsOfCityActivity : AppCompatActivity() {
                 try {
                     for (snapshot in dataSnapshot.children) {
                         val place = snapshot.getValue(FamousOfCityModel::class.java)
-                        Toast.makeText(
+                        /*Toast.makeText(
                             this@FamousItemsOfCityActivity,
-                            "${place!!.devotional_city}",
+                            "${place!!.devotional_state}",
                             Toast.LENGTH_SHORT
                         )
-                            .show()
+                            .show()*/
                         place.let {
-                            itemArray.add(it)
+                            itemArray.add(it!!)
                         }
                         adapter = CityAdapter(itemArray)
                         m.rvItemCity.adapter = adapter

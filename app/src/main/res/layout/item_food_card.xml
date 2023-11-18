@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_12sdp"
+    app:cardCornerRadius="@dimen/_12sdp"
+    app:cardElevation="@dimen/_5sdp"
+    android:backgroundTint="@color/white"
+    tools:ignore="MissingDefaultResource"
+    app:strokeWidth="0dp"
+    app:strokeColor="@color/white">
+
+    <RelativeLayout
+        android:layout_width="@dimen/_175sdp"
+        android:layout_height="@dimen/_220sdp"
+        tools:ignore="UselessParent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardImgCityOrFood"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/_12sdp"
+            android:layout_margin="@dimen/_4sdp"
+            app:cardElevation="@dimen/_2sdp">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imgCityOrFood"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_140sdp"
+                android:adjustViewBounds="true"
+                android:layout_alignParentTop="true"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/txtFoodName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/txtCityState"
+            android:layout_below="@+id/cardImgCityOrFood"
+            android:layout_alignParentStart="true"
+            android:layout_marginHorizontal="@dimen/_8sdp"
+            android:layout_marginVertical="@dimen/_4sdp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center_horizontal"
+            android:includeFontPadding="false"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/_16ssp"
+            android:textStyle="bold"
+            tools:text="McDonald's" />
+
+        <View
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="2dp"
+            android:layout_above="@+id/txtCityState"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginHorizontal="@dimen/_70sdp"
+            android:background="@color/colorAccent" />
+
+        <TextView
+            android:id="@+id/txtCityState"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            android:layout_marginHorizontal="@dimen/_8sdp"
+            android:fontFamily="sans-serif-black"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="@dimen/_16ssp"
+            tools:text="McDonald's" />
+
+
+    </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>
