@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -103,7 +104,6 @@ class AddFamousPlace : Validation() {
     }
 
 
-
     private fun savePlacePlacesData() {
         val place_name: String = m.etPlaceNamePlace.text.toString().trim()
         val place_about: String = m.etAboutPlace.text.toString()
@@ -131,6 +131,7 @@ class AddFamousPlace : Validation() {
             )
         ) {
             famPlaceID = databaseReference.push().key!!
+            val uid = FirebaseAuth.getInstance().uid
             try {
                 val famPlaceInfo = ClassPlace(
                     famPlaceID,
@@ -144,7 +145,8 @@ class AddFamousPlace : Validation() {
                     place_postal_code,
                     place_contact_number,
                     place_email_address,
-                    place_website_url
+                    place_website_url,
+                    uid
                 )
                 // place_image,
 

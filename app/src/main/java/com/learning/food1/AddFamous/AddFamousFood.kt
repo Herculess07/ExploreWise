@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -129,7 +130,7 @@ class AddFamousFood : Validation() {
             )
         ) {
             famFoodId = dbRef.push().key!!
-
+            val uid = FirebaseAuth.getInstance().uid
             val famFoodInfo = ClassFood(
                 famFoodId,
                 food_name,
@@ -142,7 +143,8 @@ class AddFamousFood : Validation() {
                 food_postal_code,
                 food_contact_number,
                 food_email_address,
-                food_website_url
+                food_website_url,
+                uid
             )
             // food_image,
 

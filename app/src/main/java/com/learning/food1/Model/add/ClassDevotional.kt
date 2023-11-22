@@ -14,4 +14,5 @@ data class ClassDevotional(
     val devotional_contact_number: String? = null,
     val devotional_email_address: String? = null,
     val devotional_website_url: String? = null,
+    val uid:String? = null,
 )

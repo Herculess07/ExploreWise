@@ -7,7 +7,7 @@
     tools:context=".BottomNavFragments.BookmarkFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerviewBookmarkF"
+        android:id="@+id/rvBookmark"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:itemCount="20"

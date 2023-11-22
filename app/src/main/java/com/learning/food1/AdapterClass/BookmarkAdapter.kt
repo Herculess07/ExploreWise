@@ -1,20 +1,25 @@
 package com.learning.food1.AdapterClass
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.learning.food1.Model.BookmarkRecyclerVModel
+import com.bumptech.glide.Glide
+import com.learning.food1.Configs
+import com.learning.food1.Model.BookmarkedItems
 import com.learning.food1.R
 
-class BookmarkAdapter(private val mList: List<BookmarkRecyclerVModel>) : RecyclerView.Adapter<BookmarkAdapter.ViewHolder>() {
+class BookmarkAdapter(
+    private val context : Context,
+    private val mList: List<BookmarkedItems>
+) : RecyclerView.Adapter<BookmarkAdapter.ViewHolder>() {
 
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        // inflates the card_view_design view
-        // that is used to hold list item
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.bookmark_card_view_design, parent, false)
 
@@ -22,26 +27,32 @@ class BookmarkAdapter(private val mList: List<BookmarkRecyclerVModel>) : Recycle
     }
 
     // binds the list items to a view
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val model = mList[position]
+        // holder.imageView.setImageResource(model.devotional_city)
+        val config = Configs()
+        val cityId = model.devPlaceID
+        holder.itemName.text = model.devotional_name
+        holder.cityName.text = "${model.devotional_city}, ${model.devotional_state}"
 
-        val bookmarkViewModel = mList[position]
+        val imageUrl =
+            "https://firebasestorage.googleapis.com/v0/b/food-project-395207.appspot.com/o/Users%2FDevotionalPlaces%2F$cityId?alt=media"
 
-        // sets the image to the imageview from our itemHolder class
-        holder.imageView.setImageResource(bookmarkViewModel.image)
 
-        // sets the text to the textview from our itemHolder class
-        holder.textView.text = bookmarkViewModel.text
-
+        Glide.with(context)
+            .load(imageUrl)
+            .placeholder(R.drawable.skeleton)
+            .into(holder.image)
     }
 
-    // return the number of the items in the list
     override fun getItemCount(): Int {
         return mList.size
     }
 
-    // Holds the views for adding it to image and text
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val imageView: ImageView = this.itemView.findViewById(R.id.imgTitle)
-        val textView: TextView = this.itemView.findViewById(R.id.txtItemName)
+        val image: ImageView = this.itemView.findViewById(R.id.imgTitle)
+        val itemName: TextView = this.itemView.findViewById(R.id.txtItemName)
+        val cityName: TextView = this.itemView.findViewById(R.id.txtCityState)
     }
 }

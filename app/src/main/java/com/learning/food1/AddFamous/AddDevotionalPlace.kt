@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -127,6 +128,7 @@ class AddDevotionalPlace : Validation() {
             )
         ) {
             devPlaceID = dbRef.push().key!!
+            val uid = FirebaseAuth.getInstance().uid
             try {
 
                 val devPlaceInfo = ClassDevotional(
@@ -141,7 +143,8 @@ class AddDevotionalPlace : Validation() {
                     devotional_postal_code,
                     devotional_contact_number,
                     devotional_email_address,
-                    devotional_website_url
+                    devotional_website_url,
+                    uid
                 )
                 // devotional_image,
 

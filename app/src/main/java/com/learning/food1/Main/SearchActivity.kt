@@ -107,7 +107,7 @@ private val config = Configs()
                 for (snap in snapshot.children) {
                     try {
                         val placeName= snap.getValue(SearchModel::class.java)
-                        if (placeName != null && placeName.place_name!!.contains(search)){
+                        if (placeName != null && placeName.place_name!!.lowercase().contains(search.lowercase())){
                             searchList.add(placeName)
                         }
                     } catch (e: Exception) {
@@ -146,7 +146,7 @@ private val config = Configs()
                 for (snap in snapshot.children) {
                     try {
                         val placeName= snap.getValue(SearchDevotionalModel::class.java)
-                        if (placeName != null && placeName.devotional_name!!.contains(search)){
+                        if (placeName != null && placeName.devotional_name!!.lowercase().contains(search.lowercase())){
                             searchDevList.add(placeName)
                         }
                     } catch (e: Exception) {
@@ -185,7 +185,7 @@ private val config = Configs()
                 for (snap in snapshot.children) {
                     try {
                         val placeName= snap.getValue(SearchFoodModel::class.java)
-                        if (placeName != null && placeName.food_name!!.contains(search)){
+                        if (placeName != null && placeName.food_name!!.lowercase().contains(search.lowercase())){
                             searchFoodList.add(placeName)
                         }
                     } catch (e: Exception) {

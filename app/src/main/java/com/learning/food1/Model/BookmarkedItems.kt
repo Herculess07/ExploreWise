@@ -1,6 +1,6 @@
 package com.learning.food1.Model
 
-class FamousOfCityModel(
+class BookmarkedItems(
     val devPlaceID: String? = null,
     val devotional_name: String? = null,
     val devotional_city: String? = null,

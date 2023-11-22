@@ -6,15 +6,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.learning.food1.Interfaces.home.PlacesInterface
-import com.learning.food1.Model.home.Places
+import com.learning.food1.Interfaces.ViewAllInterface
+import com.learning.food1.Model.ViewAllModel
 import com.learning.food1.R
 import com.learning.food1.databinding.BookmarkCardViewDesignBinding
 
 class ViewAllPlacesAdapter(
     val context: Context,
-    private val model: ArrayList<Places>,
-    private val cb: PlacesInterface,
+    private val model: ArrayList<ViewAllModel>,
+    private val cb: ViewAllInterface,
 ) :
     RecyclerView.Adapter<ViewAllPlacesAdapter.ViewAllBinding>() {
 
@@ -44,7 +44,7 @@ class ViewAllPlacesAdapter(
             .into(holder.b.imgTitle)
 
         holder.itemView.setOnClickListener {
-            cb.onPlaceClicked(model, position)
+            cb.onViewAllPlaceClicked(model, position)
 
         }
 

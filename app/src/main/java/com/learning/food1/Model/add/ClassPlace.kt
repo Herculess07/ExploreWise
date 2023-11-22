@@ -14,4 +14,5 @@ class ClassPlace(
     val place_contact_number: String? = null,
     val place_email_address: String? = null,
     val place_website_url: String? = null,
+    val uid : String? = null,
 )

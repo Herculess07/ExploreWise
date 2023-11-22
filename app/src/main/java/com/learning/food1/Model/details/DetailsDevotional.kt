@@ -12,8 +12,8 @@ data class DetailsDevotional(
     val devotional_state: String? = null,
     val devotional_postal_code: String? = null,
     val devotional_contact_number: String? = null,
-    /*val devotional_image_name: String? = null,
+    /*val devotional_image_name: String? = null,*/
     val devotional_email_address: String? = null,
     val devotional_additional_address_info: String? = null,
-    val devotional_website_url: String? = null,*/
+    val devotional_website_url: String? = null,
 )

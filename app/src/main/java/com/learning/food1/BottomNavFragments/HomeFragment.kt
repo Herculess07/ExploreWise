@@ -181,8 +181,7 @@ class HomeFragment : Fragment() {
         showLoading()
         fdb = FirebaseDatabase.getInstance().reference
 
-
-        dbRef = fdb.child("Users/DevotionalPlaces")
+        dbRef = fdb.child(config.PATH_DEVOTION_PLACES)
         dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (isAdded && activity != null && !requireActivity().isDestroyed && !requireActivity().isFinishing) {
@@ -193,6 +192,9 @@ class HomeFragment : Fragment() {
                                     placeSnapshot.getValue(ClassVisitedCitiesHome::class.java)
                                 citiesArrayList.add(city!!)
                             }
+
+                            citiesArrayList.shuffle();
+
                             val itemsAdapter = HomeAdapter(citiesArrayList, object : HomeInterface {
                                 override fun onCityClicked(
                                     model: ClassVisitedCitiesHome,
@@ -203,13 +205,8 @@ class HomeFragment : Fragment() {
                                         FamousItemsOfCityActivity::class.java
                                     )
                                     i.putExtra(config.KEY_ID, model.devPlaceID)
-                                    i.putExtra(config.KEY_CITY, model.devotional_state)
+                                    i.putExtra(config.KEY_STATE, model.devotional_state)
                                     startActivity(i)
-                                    /*Toast.makeText(
-                                        requireContext(),
-                                        "${model.devotional_city}",
-                                        Toast.LENGTH_SHORT
-                                    ).show()*/
                                 }
                             })
                             m.rvCity.rv.adapter = itemsAdapter
@@ -240,7 +237,7 @@ class HomeFragment : Fragment() {
         showLoading()
 
         fdb = FirebaseDatabase.getInstance().reference
-        dbRef = fdb.child("Users/DevotionalPlaces")
+        dbRef = fdb.child(config.PATH_DEVOTION_PLACES)
         try {
             dbRef.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
@@ -252,6 +249,8 @@ class HomeFragment : Fragment() {
                                         devSnapshot.getValue(Devotion::class.java)
                                     devotionArrayList.add(place!!)
                                 }
+                                devotionArrayList.shuffle()
+
                                 val itemsAdapter = DevotionAdapter(requireContext(),
                                     devotionArrayList,
                                     object : DevotionInterface {
@@ -301,7 +300,7 @@ class HomeFragment : Fragment() {
         showLoading()
 
         fdb = FirebaseDatabase.getInstance().reference
-        dbRef = fdb.child("Users/FamousPlaces")
+        dbRef = fdb.child(config.PATH_FAMOUS_PLACES)
 
         try {
             dbRef.addValueEventListener(object : ValueEventListener {
@@ -314,6 +313,8 @@ class HomeFragment : Fragment() {
                                         famPlaceSnapshot.getValue(Places::class.java)
                                     famPlaceArrayList.add(famPlace!!)
                                 }
+
+                                famPlaceArrayList.shuffle()
                                 val itemsAdapter = PlacesAdapter(
                                     requireContext(),
                                     famPlaceArrayList,
@@ -362,7 +363,7 @@ class HomeFragment : Fragment() {
         showLoading()
         fdb = FirebaseDatabase.getInstance().reference
         try {
-            dbRef = fdb.child("Users/FamousFood")
+            dbRef = fdb.child(config.PATH_FAMOUS_FOOD)
             dbRef.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (isAdded && activity != null && !requireActivity().isDestroyed && !requireActivity().isFinishing) {
@@ -371,6 +372,9 @@ class HomeFragment : Fragment() {
                                 val famFood: Food = famFoodSnapshot.getValue(Food::class.java)!!
                                 foodArrayList.add(famFood)
                             }
+
+                            foodArrayList.shuffle()
+
                             val itemsAdapter = FoodAdapter(requireContext(),
                                 foodArrayList,
                                 object : FoodInterface {
@@ -421,6 +425,7 @@ class HomeFragment : Fragment() {
             val img5 =
                 "https://firebasestorage.googleapis.com/v0/b/food-project-395207.appspot.com/o/raw%2Fsk-fY-ArEvk7sc-unsplash.jpg?alt=media&token=4bc8145d-689b-40c9-a195-c33f9b4a7cb3"
 
+
             imageList.add(SlideModel(img1))
             imageList.add(SlideModel(img2))
             imageList.add(SlideModel(img3))
@@ -431,7 +436,7 @@ class HomeFragment : Fragment() {
                 .load(imageList)
                 .placeholder(R.drawable.skeleton)*/
 
-
+            imageList.shuffle()
             m.imageSlider.setImageList(imageList, ScaleTypes.CENTER_CROP)
         }
     }

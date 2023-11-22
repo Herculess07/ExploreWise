@@ -18,4 +18,5 @@ class ClassFood(
     val food_contact_number: String? = null,
     val food_email_address: String? = null,
     val food_website_url: String? = null,
+    val uid : String? = null,
 ) {}

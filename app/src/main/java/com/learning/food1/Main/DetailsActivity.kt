@@ -79,8 +79,21 @@ class DetailsActivity : AppCompatActivity() {
                     m.descriptionDetails.text = dd.devotional_about
                     m.cityDetails.text = dd.devotional_city
                     try {
-                        m.areaDetails.text =
-                            "${dd.devotional_area}, ${dd.devotional_city}, ${dd.devotional_state}, ${dd.devotional_postal_code}"
+                        if (
+                            dd.devotional_email_address != null ||
+                        dd.devotional_website_url != null ||
+                        dd.devotional_contact_number != null
+                        ){
+                            m.imgEmail.setImageResource(R.drawable.baseline_alternate_email_24)
+                            m.imgWebsite.setImageResource(R.drawable.baseline_link_24)
+                            m.imgPhone.setImageResource(R.drawable.baseline_phone_iphone_24)
+                            m.areaDetails.text =
+                                "${dd.devotional_area}, ${dd.devotional_city}, ${dd.devotional_state}, ${dd.devotional_postal_code}"
+                            m.emailDetails.text = dd.devotional_email_address
+                            m.websiteDetails.text = dd.devotional_website_url
+                            m.phoneDetails.text = dd.devotional_contact_number
+                        }
+
                     } catch (e: Exception) {
                         e.printStackTrace()
                     }

@@ -1,6 +1,5 @@
 package com.learning.food1.BottomNavFragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -17,12 +16,11 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.StorageReference
 import com.learning.food1.AdapterClass.ViewAllPlacesAdapter
 import com.learning.food1.Configs
-import com.learning.food1.Interfaces.home.PlacesInterface
-import com.learning.food1.Main.DetailsActivity
+import com.learning.food1.Interfaces.ViewAllInterface
+import com.learning.food1.Model.ViewAllModel
 import com.learning.food1.Model.home.ClassVisitedCitiesHome
 import com.learning.food1.Model.home.Devotion
 import com.learning.food1.Model.home.Food
-import com.learning.food1.Model.home.Places
 import com.learning.food1.databinding.FragmentViewAllBinding
 
 class ViewAllFragment : Fragment() {
@@ -37,7 +35,7 @@ class ViewAllFragment : Fragment() {
 
     private lateinit var citiesArrayList: ArrayList<ClassVisitedCitiesHome>
     private lateinit var devotionArrayList: ArrayList<Devotion>
-    private lateinit var famPlaceArrayList: ArrayList<Places>
+    private lateinit var famPlaceArrayList: ArrayList<ViewAllModel>
     private lateinit var foodArrayList: ArrayList<Food>
 
     override fun onCreateView(
@@ -82,24 +80,29 @@ class ViewAllFragment : Fragment() {
                         if (isAdded && !requireActivity().isDestroyed && !requireActivity().isFinishing) {
                             if (snapshot.exists()) {
                                 for (famPlaceSnapshot in snapshot.children) {
-                                    val famPlace: Places? =
-                                        famPlaceSnapshot.getValue(Places::class.java)
+                                    val famPlace: ViewAllModel? =
+                                        famPlaceSnapshot.getValue(ViewAllModel::class.java)
                                     famPlaceArrayList.add(famPlace!!)
                                 }
                                 val itemsAdapter = ViewAllPlacesAdapter(
                                     requireContext(),
                                     famPlaceArrayList,
-                                    object : PlacesInterface {
-                                        override fun onPlaceClicked(
-                                            model: Places,
-                                            position: Int,
+                                    object : ViewAllInterface {
+                                        override fun onViewAllPlaceClicked(
+                                            model: ViewAllModel,
+                                            position: Int
                                         ) {
-                                            val i = Intent(
+                                            Toast.makeText(
+                                                requireContext(),
+                                                "clicked ${model.place_name}",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                            /*val i = Intent(
                                                 context,
                                                 DetailsActivity::class.java
                                             )
                                             i.putExtra(config.PLACE_ID, model.famPlaceID)
-                                            requireActivity().startActivity(i)
+                                            requireActivity().startActivity(i)*/
                                         }
 
                                     })

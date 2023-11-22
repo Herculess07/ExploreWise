@@ -17,6 +17,12 @@ open class Configs : Application() {
     val KEY_FOOD = "FamousFood"
     val KEY_DEVOTION = "DevotionalPlace"
     val KEY_PLACE = "FamousPlace"
-    val KEY_CITY = "FamousPlace"
+    val KEY_CITY = "FamousCity"
+    val KEY_STATE = "FamousState"
+    val KEY_BOOKMARK = "Bookmark"
+    val PATH_FAMOUS_PLACES = "Users/FamousPlaces"
+    val PATH_FAMOUS_FOOD = "Users/FamousFood"
+    val PATH_DEVOTION_PLACES = "Users/DevotionalPlaces"
+    val BASE_IMAGE_URL = "https://firebasestorage.googleapis.com/v0/b/food-project-395207.appspot.com/o/Users%2F"
 
 }
