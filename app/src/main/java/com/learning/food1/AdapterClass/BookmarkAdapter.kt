@@ -10,12 +10,14 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.learning.food1.Configs
+import com.learning.food1.Interfaces.BookmarkInterface
 import com.learning.food1.Model.BookmarkedItems
 import com.learning.food1.R
 
 class BookmarkAdapter(
     private val context : Context,
-    private val mList: List<BookmarkedItems>
+    private val mList: List<BookmarkedItems>,
+    private val cb : BookmarkInterface
 ) : RecyclerView.Adapter<BookmarkAdapter.ViewHolder>() {
 
     // create new views
@@ -35,6 +37,9 @@ class BookmarkAdapter(
         val cityId = model.devPlaceID
         holder.itemName.text = model.devotional_name
         holder.cityName.text = "${model.devotional_city}, ${model.devotional_state}"
+        holder.itemView.setOnClickListener {
+            cb.onBookmarkItemClicked(model,position)
+        }
 
         val imageUrl =
             "https://firebasestorage.googleapis.com/v0/b/food-project-395207.appspot.com/o/Users%2FDevotionalPlaces%2F$cityId?alt=media"

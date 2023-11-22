@@ -107,7 +107,13 @@ private val config = Configs()
                 for (snap in snapshot.children) {
                     try {
                         val placeName= snap.getValue(SearchModel::class.java)
-                        if (placeName != null && placeName.place_name!!.lowercase().contains(search.lowercase())){
+                        if (
+                            placeName != null &&
+                            placeName.place_name!!.lowercase().contains(search.lowercase()) ||
+                            placeName!!.place_city!!.lowercase().contains(search.lowercase()) ||
+                            placeName.place_state!!.lowercase().contains(search.lowercase())
+
+                            ){
                             searchList.add(placeName)
                         }
                     } catch (e: Exception) {
@@ -146,7 +152,11 @@ private val config = Configs()
                 for (snap in snapshot.children) {
                     try {
                         val placeName= snap.getValue(SearchDevotionalModel::class.java)
-                        if (placeName != null && placeName.devotional_name!!.lowercase().contains(search.lowercase())){
+                        if (placeName != null &&
+                            placeName.devotional_name!!.lowercase().contains(search.lowercase())||
+                            placeName!!.devotional_city!!.lowercase().contains(search.lowercase()) ||
+                            placeName.devotional_state!!.lowercase().contains(search.lowercase())
+                            ){
                             searchDevList.add(placeName)
                         }
                     } catch (e: Exception) {
@@ -185,7 +195,11 @@ private val config = Configs()
                 for (snap in snapshot.children) {
                     try {
                         val placeName= snap.getValue(SearchFoodModel::class.java)
-                        if (placeName != null && placeName.food_name!!.lowercase().contains(search.lowercase())){
+                        if (placeName != null &&
+                            placeName.food_name!!.lowercase().contains(search.lowercase()) ||
+                            placeName!!.food_city!!.lowercase().contains(search.lowercase()) ||
+                            placeName.food_state!!.lowercase().contains(search.lowercase())
+                            ){
                             searchFoodList.add(placeName)
                         }
                     } catch (e: Exception) {

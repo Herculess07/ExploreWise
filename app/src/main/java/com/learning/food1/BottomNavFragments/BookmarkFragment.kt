@@ -1,5 +1,6 @@
 package com.learning.food1.BottomNavFragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,9 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.learning.food1.AdapterClass.BookmarkAdapter
+import com.learning.food1.Configs
+import com.learning.food1.Interfaces.BookmarkInterface
+import com.learning.food1.Main.DetailsActivity
 import com.learning.food1.Model.BookmarkedItems
 import com.learning.food1.databinding.FragmentBookmarkBinding
 
@@ -53,7 +57,7 @@ class BookmarkFragment : Fragment() {
     }
 
     private fun getBookmarks() {
-
+        val config = Configs()
         bookmarksRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (activity != null && !requireActivity().isDestroyed && !requireActivity().isFinishing) {
@@ -68,17 +72,32 @@ class BookmarkFragment : Fragment() {
 
                         bookmarkList.reverse()
 
-                        val itemsAdapter = BookmarkAdapter(requireContext(), bookmarkList)
+                        val itemsAdapter = BookmarkAdapter(requireContext(), bookmarkList,
+                            object : BookmarkInterface {
+                                override fun onBookmarkItemClicked(
+                                    model: BookmarkedItems,
+                                    position: Int,
+                                ) {
+                                    val i = Intent(
+                                        requireContext(),
+                                        DetailsActivity::class.java
+                                    )
+                                    i.putExtra(config.DEVOTION_ID, model.devPlaceID)
+                                    startActivity(i)
+                                }
+
+                            })
                         m.rvBookmark.adapter = itemsAdapter
                         itemsAdapter.notifyItemInserted(bookmarkList.size - 1)
-                    }else{
-                        Toast.makeText(requireContext(), "No Bookmark added", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(requireContext(), "No Bookmark added", Toast.LENGTH_SHORT)
+                            .show()
                     }
                 }
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Handle errors
+
             }
         })
     }
