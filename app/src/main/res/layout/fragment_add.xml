@@ -1,113 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/layoutFragmentAdd"
-    style="@style/Theme.Material3.Light.Dialog"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:layout_margin="@dimen/_10sdp"
-    android:backgroundTint="@color/white"
-    app:cardCornerRadius="@dimen/_20sdp"
-    app:cardElevation="@dimen/_5sdp"
-    tools:context=".BottomNavFragments.AddFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/layoutFragmentAdd"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="@dimen/_15sdp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:cardCornerRadius="@dimen/_24sdp"
+        app:cardElevation="@dimen/_5sdp"
+        app:strokeWidth="0dp"
+        tools:context=".BottomNavFragments.AddFragment">
 
         <LinearLayout
-            android:id="@+id/llAddPlace"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_10sdp"
-            android:orientation="horizontal"
-            tools:ignore="UseCompoundDrawables">
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/_15sdp"
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/baseline_place_24" />
-
-            <TextView
-                android:id="@+id/btnAddPlace"
+            <LinearLayout
+                android:id="@+id/llAddPlace"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/baseline_place_24"
+                    app:tint="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:id="@+id/btnAddPlace"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginVertical="@dimen/_5sdp"
+                    android:text="@string/add_famous_place"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_16sdp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
+                android:background="#CCCCCC" />
 
-                android:layout_marginVertical="@dimen/_5sdp"
-                android:text="@string/add_famous_place"
-                android:textSize="@dimen/_16sdp" />
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginHorizontal="@dimen/_10sdp"
-            android:background="#CCCCCC" />
-
-        <LinearLayout
-            android:id="@+id/llAddDevotionalPlace"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_10sdp"
-            android:orientation="horizontal"
-            tools:ignore="UseCompoundDrawables">
-
-            <ImageView
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/temple" />
-
-            <TextView
-                android:id="@+id/btnAddDevotionalPlace"
+            <LinearLayout
+                android:id="@+id/llAddDevotionalPlace"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/temple"
+                    app:tint="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:id="@+id/btnAddDevotionalPlace"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginVertical="@dimen/_5sdp"
+                    android:text="@string/add_devotional_place"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_16sdp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
-                android:layout_marginVertical="@dimen/_5sdp"
-                android:text="@string/add_devotional_place"
-                android:textSize="@dimen/_16sdp" />
-        </LinearLayout>
+                android:background="#CCCCCC" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginHorizontal="@dimen/_10sdp"
-            android:background="#CCCCCC" />
-
-        <LinearLayout
-            android:id="@+id/llAddFamousFood"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_10sdp"
-            android:orientation="horizontal"
-            tools:ignore="UseCompoundDrawables">
-
-            <ImageView
-                android:layout_width="@dimen/_30sdp"
-                android:layout_height="@dimen/_30sdp"
-                android:contentDescription="@string/app_name"
-                android:src="@drawable/baseline_fastfood_24" />
-
-            <TextView
-                android:id="@+id/btnAddFood"
+            <LinearLayout
+                android:id="@+id/llAddFamousFood"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_10sdp"
-                android:layout_marginVertical="@dimen/_5sdp"
-                android:text="@string/add_famous_food"
-                android:textSize="@dimen/_16sdp" />
-        </LinearLayout>
+                android:layout_margin="@dimen/_10sdp"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
 
-        <!--<View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginHorizontal="@dimen/_10sdp"
-            android:background="#CCCCCC" />-->
-    </LinearLayout>
-</com.google.android.material.card.MaterialCardView>
+                <ImageView
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/baseline_fastfood_24"
+                    app:tint="@color/colorPrimaryDark" />
+
+                <TextView
+                    android:id="@+id/btnAddFood"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginVertical="@dimen/_5sdp"
+                    android:text="@string/add_famous_food"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="@dimen/_16sdp" />
+            </LinearLayout>
+
+            <!--<View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:background="#CCCCCC" />-->
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

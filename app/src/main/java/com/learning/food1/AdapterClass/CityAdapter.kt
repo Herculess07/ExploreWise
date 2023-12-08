@@ -6,15 +6,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
 import com.learning.food1.Interfaces.FamousOfCityInterface
-import com.learning.food1.Model.BookmarkedItems
 import com.learning.food1.Model.FamousOfCityModel
 import com.learning.food1.R
 import com.learning.food1.databinding.BookmarkCardViewDesignBinding
 
-//class HomeAdapter(val context : Context,private val mList: List<FamousOfCityModel>) :
 class CityAdapter(
     val context: Context,
     private val mList: ArrayList<FamousOfCityModel>,
@@ -23,10 +19,6 @@ class CityAdapter(
     ) :
     RecyclerView.Adapter<CityAdapter.CityItemsBinding>() {
 
-    // Holds the views for adding it to image and text
-
-
-    // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CityItemsBinding {
         val b = BookmarkCardViewDesignBinding.inflate(
             LayoutInflater.from(parent.context),
@@ -58,50 +50,47 @@ class CityAdapter(
             cb.onFamousItemsOfCityClicked(model, position)
         }
 
+        val initialBookmarkIcon =
+            if (model.bookmark) R.drawable.baseline_bookmark_24
+            else R.drawable.baseline_bookmark_border_24
+        holder.b.bookmarkIcon.setImageResource(initialBookmarkIcon)
+
         holder.b.bookmarkIcon.setOnClickListener {
-            if (model.bookmark) {
-                cb.onBookmarkClicked(model, position)
-                model.bookmark = false
+            // Toggle bookmark status
+            model.bookmark = !model.bookmark
 
-                holder.b.bookmarkIcon.setImageResource(R.drawable.baseline_bookmark_border_24)
+            // Update UI immediately
+            /*val updatedBookmarkIcon =
+                if (model.bookmark) R.drawable.baseline_bookmark_24
+                else R.drawable.baseline_bookmark_border_24
+            holder.b.bookmarkIcon.setImageResource(updatedBookmarkIcon)
 
-            } else {
-                val uid = FirebaseAuth.getInstance().uid
-
-                model.bookmark = true
-
-                holder.b.bookmarkIcon.setImageResource(R.drawable.baseline_bookmark_24)
-                try {
-                    if (uid != null) {
-                        addToBookmarks(
-                            uid,
-                            model.devPlaceID.toString(),
-                            model.devotional_name.toString(),
-                            model.devotional_city.toString(),
-                            model.devotional_state.toString(),
-                            model.bookmark
-                        )
-                    }
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                }
-            }
+            // Asynchronously handle background tasks (e.g., save to Firebase)
+            val uid = FirebaseAuth.getInstance().uid
+            if (uid != null) {
+                addToBookmarks(
+                    uid,
+                    model.devPlaceID.toString(),
+                    model.devotional_name.toString(),
+                    model.devotional_city.toString(),
+                    model.devotional_state.toString(),
+                    model.bookmark
+                )
+            }*/
         }
     }
 
 
-    private fun addToBookmarks(
+   /* private fun addToBookmarks(
         uid: String,
         devPlaceId: String,
         devotional_name: String,
         devotional_city: String,
         devotional_state: String,
-        bookmark: Boolean,
+        bookmark: Boolean
     ) {
         val database = FirebaseDatabase.getInstance()
         val bookmarksRef = database.getReference("Users/Bookmarks/$uid")
-
-        val bookmarkKey = bookmarksRef.push().key
 
         val bookmarkedPlace = BookmarkedItems(
             devPlaceID = devPlaceId,
@@ -111,11 +100,9 @@ class CityAdapter(
             bookmark = bookmark,
         )
 
-        bookmarkKey?.let {
-            bookmarksRef.child(it).setValue(bookmarkedPlace)
-        }
+        bookmarksRef.child(devPlaceId).setValue(bookmarkedPlace)
     }
-
+*/
     override fun getItemCount(): Int {
         return mList.size
     }

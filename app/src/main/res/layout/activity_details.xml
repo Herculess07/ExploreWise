@@ -155,9 +155,11 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/layoutPhone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
                         <ImageView
                             android:id="@+id/imgPhone"
@@ -177,14 +179,17 @@
                             android:layout_margin="5dp"
                             android:fontFamily="sans-serif"
                             tools:text="@string/contact_information_for_place"
-                            android:textColor="@color/colorAccent"
-                            android:textSize="20sp" />
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="20sp"
+                            />
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/layoutEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
                         <ImageView
                             android:id="@+id/imgEmail"
@@ -209,9 +214,11 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/layoutWebsite"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
                         <ImageView
                             android:id="@+id/imgWebsite"
@@ -231,7 +238,7 @@
                             android:layout_margin="5dp"
                             android:fontFamily="sans-serif"
                             tools:text="@string/contact_information_for_place"
-                            android:textColor="@color/colorAccent"
+                            android:textColor="@color/colorPrimary"
                             android:textSize="20sp" />
                     </LinearLayout>
 

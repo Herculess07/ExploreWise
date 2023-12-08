@@ -29,7 +29,8 @@ class HomeAdapter(
         holder.b.txtState!!.text = model.devotional_state
 
         val imgId = model.devPlaceID
-        val imageUrl = "https://firebasestorage.googleapis.com/v0/b/food-project-395207.appspot.com/o/Users%2FDevotionalPlaces%2F$imgId?alt=media"
+        val imageUrl =
+            "https://firebasestorage.googleapis.com/v0/b/food-project-395207.appspot.com/o/Users%2FDevotionalPlaces%2F$imgId?alt=media"
 
         Glide.with(holder.itemView.context)
             .load(imageUrl)
@@ -42,14 +43,9 @@ class HomeAdapter(
         }
     }
 
-    val limit = 10
-    override fun getItemCount(): Int {
-        return if (mList.size > limit) {
-            limit;
-        } else {
-            mList.size;
-        }
 
+    override fun getItemCount(): Int {
+        return mList.size - 1
     }
 
     class HomeBinding(var b: ItemCitiesCardBinding) :

@@ -1,4 +1,4 @@
-package com.learning.food1.Model
+package com.learning.food1.Model.bookmark
 
 class BookmarkedItems(
     val devPlaceID: String? = null,

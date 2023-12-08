@@ -49,7 +49,7 @@ class FoodAdapter(
 
 
     override fun getItemCount(): Int {
-        return mList.size
+        return mList.size - 1
     }
 
 

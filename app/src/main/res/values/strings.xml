@@ -24,6 +24,7 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
+    <string name="logout">Log out</string>
     <string name="signup">Register</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="don_t_have_an_account_sign_up">Don\'t Have an Account? </string>
@@ -34,6 +35,7 @@
     <string name="enter_famous_place_name">Enter Famous Place Name</string>
     <string name="add_devotional_place">Add Devotional Place</string>
     <string name="about_devotional">About Devotional Place</string>
+    <string name="save">Save</string>
     <string name="about_food">About Famous Food</string>
     <string name="about_place">About Famous Place</string>
     <string name="add_image">Add Image</string>
@@ -60,6 +62,7 @@
     <string name="Explore">Explore</string>
     <string name="location">Location</string>
     <string name="bookmark">Bookmark</string>
+    <string name="bookmarks">Bookmarks</string>
     <string name="settings">Settings</string>
     <string name="add_famous_place">Add Famous Place</string>
     <string name="add_famous_food">Add Famous Food</string>

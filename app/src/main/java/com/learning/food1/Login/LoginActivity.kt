@@ -8,13 +8,16 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.learning.food1.Configs
 import com.learning.food1.Main.MainActivity
+import com.learning.food1.Main.Validation
 import com.learning.food1.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var m: ActivityLoginBinding
     private lateinit var auth: FirebaseAuth
+    private val c = Configs()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,9 +28,9 @@ class LoginActivity : AppCompatActivity() {
         init()
     }
 
-    private fun init(){
+    private fun init() {
         m.btnLogin.setOnClickListener {
-            validPassword()
+
             loginUser()
         }
 
@@ -61,32 +64,54 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    private fun storeDataInSharedPref() {
+        if (!isFinishing && !isDestroyed) {
+            val userId = auth.currentUser?.uid
+            val sharedPref = getSharedPreferences(c.PREF, Context.MODE_PRIVATE)
+            val editor = sharedPref.edit()
+            editor.putString(c.KEY_EMAIL, m.etLoginEmailAddress.text.toString())
+            editor.putString(c.USER_ID, userId)
+            editor.apply()
+            Toast.makeText(this, "Login Data stored in shared pref", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    val valid = Validation()
+
     // login function
     private fun loginUser() {
         val email = m.etLoginEmailAddress.text.toString()
         val pass = m.etLoginPassword.text.toString()
-        // val sharedPref = getSharedPreferences("com.learning.food1", Context.MODE_PRIVATE)
-        // val editor = sharedPref.edit()
-        // calling signInWithEmailAndPassword(email, pass)
-        // function using Firebase auth object
-        // On successful response Display a Toast
 
-        if (email.isNotEmpty() && pass.isNotEmpty()) {
-            auth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(this) {
+        // Validate email
+        val vEmail = valid.validateEmail(email)
+
+        if (vEmail && pass.isNotEmpty() && validPassword() != null) {
+            auth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(this) { task ->
                 if (checkForInternet(this)) {
-                    if (it.isSuccessful ) {
+                    if (task.isSuccessful) {
+                        val isValidPassword = validPassword()
+                        if (isValidPassword != null) {
+                            storeDataInSharedPref()
 
-                        val intent = Intent(this, MainActivity::class.java)
-                        startActivity(intent)
+                            val intent = Intent(this, MainActivity::class.java)
+                            startActivity(intent)
 
-                        Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
-                        finish()
+                            Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
+                            finish()
+                        } else {
+                            Toast.makeText(this, "Invalid password after login", Toast.LENGTH_SHORT)
+                                .show()
+                        }
                     } else {
                         try {
-                            Toast.makeText(this, "", Toast.LENGTH_SHORT).show()
-                        }catch (e:Error){
-                            Toast.makeText(this, "${e.message}", Toast.LENGTH_SHORT).show()
-
+                            Toast.makeText(
+                                this,
+                                "Login failed: ${task.exception?.message}",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        } catch (e: Error) {
+                            Toast.makeText(this, e.message.toString(), Toast.LENGTH_SHORT).show()
                         }
                     }
                 } else {
@@ -94,25 +119,23 @@ class LoginActivity : AppCompatActivity() {
                 }
             }
         } else {
-            Toast.makeText(this, "Email and Password can't be blank", Toast.LENGTH_SHORT).show()
-            return
+            Toast.makeText(this, "Invalid email or password", Toast.LENGTH_SHORT).show()
         }
-
-
     }
+
 
     private fun validPassword(): String? {
         val passwordText = m.etLoginPassword.text.toString()
-        if(passwordText.length < 8) {
+        if (passwordText.length < 8) {
             return "Minimum 8 Character Password"
         }
-        if(!passwordText.matches(".*[A-Z].*".toRegex())) {
+        if (!passwordText.matches(".*[A-Z].*".toRegex())) {
             return "Must Contain 1 Upper-case Character"
         }
-        if(!passwordText.matches(".*[a-z].*".toRegex())) {
+        if (!passwordText.matches(".*[a-z].*".toRegex())) {
             return "Must Contain 1 Lower-case Character"
         }
-        if(!passwordText.matches(".*[@#\$%^&+=].*".toRegex())) {
+        if (!passwordText.matches(".*[@#\$%^&+=].*".toRegex())) {
             return "Must Contain 1 Special Character (@#\$%^&+=)"
         }
 

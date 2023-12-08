@@ -28,7 +28,7 @@ import com.learning.food1.databinding.ActivitySearchBinding
 class SearchActivity : AppCompatActivity() {
 
     private lateinit var m: ActivitySearchBinding
-private val config = Configs()
+    private val config = Configs()
     var dbRef: DatabaseReference? = null
     var userRef: DatabaseReference? = null
     var userDev: DatabaseReference? = null
@@ -37,7 +37,7 @@ private val config = Configs()
     lateinit var searchList: ArrayList<SearchModel>
     lateinit var searchDevList: ArrayList<SearchDevotionalModel>
     lateinit var searchFoodList: ArrayList<SearchFoodModel>
-     var exSearch:String?  =null
+    var exSearch: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -103,36 +103,45 @@ private val config = Configs()
 
         userRef!!.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                searchList.clear()
-                for (snap in snapshot.children) {
-                    try {
-                        val placeName= snap.getValue(SearchModel::class.java)
-                        if (
-                            placeName != null &&
-                            placeName.place_name!!.lowercase().contains(search.lowercase()) ||
-                            placeName!!.place_city!!.lowercase().contains(search.lowercase()) ||
-                            placeName.place_state!!.lowercase().contains(search.lowercase())
+                if (!isDestroyed && !isFinishing) {
+                    if (snapshot.exists()) {
+                        searchList.clear()
+                        for (snap in snapshot.children) {
+                            try {
+                                val placeName = snap.getValue(SearchModel::class.java)
+                                if (
+                                    placeName != null &&
+                                    placeName.place_name!!.lowercase()
+                                        .contains(search.lowercase()) ||
+                                    placeName!!.place_city!!.lowercase()
+                                        .contains(search.lowercase()) ||
+                                    placeName.place_state!!.lowercase().contains(search.lowercase())
 
-                            ){
-                            searchList.add(placeName)
+                                ) {
+                                    searchList.add(placeName)
+                                }
+                            } catch (e: Exception) {
+                                e.printStackTrace()
+                            }
                         }
-                    } catch (e: Exception) {
-                        e.printStackTrace()
+                        m.rvSearchPlace.adapter =
+                            SearchAdapter(this@SearchActivity, searchList, object :
+                                SearchInterface {
+                                override fun onSearchPlaceClicked(
+                                    model: SearchModel,
+                                    position: Int,
+                                ) {
+                                    val i = Intent(
+                                        this@SearchActivity,
+                                        DetailsActivity::class.java
+                                    )
+                                    i.putExtra(config.PLACE_ID, model.famPlaceID)
+                                    startActivity(i)
+                                }
+                            })
+                        m.rvSearchPlace.adapter!!.notifyItemInserted(searchList.size - 1)
                     }
                 }
-                m.rvSearchPlace.adapter = SearchAdapter(this@SearchActivity, searchList, object :
-                    SearchInterface {
-                    override fun onSearchPlaceClicked(model: SearchModel, position: Int) {
-                        val i = Intent(
-                            this@SearchActivity,
-                            DetailsActivity::class.java
-                        )
-                        i.putExtra(config.PLACE_ID, model.famPlaceID)
-                        startActivity(i)
-                    }
-                })
-                m.rvSearchPlace.adapter!!.notifyItemInserted(searchList.size - 1)
-
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -148,33 +157,44 @@ private val config = Configs()
 
         userDev!!.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                searchDevList.clear()
-                for (snap in snapshot.children) {
-                    try {
-                        val placeName= snap.getValue(SearchDevotionalModel::class.java)
-                        if (placeName != null &&
-                            placeName.devotional_name!!.lowercase().contains(search.lowercase())||
-                            placeName!!.devotional_city!!.lowercase().contains(search.lowercase()) ||
-                            placeName.devotional_state!!.lowercase().contains(search.lowercase())
-                            ){
-                            searchDevList.add(placeName)
+                if (!isDestroyed && !isFinishing) {
+                    if (snapshot.exists()) {
+                        searchDevList.clear()
+                        for (snap in snapshot.children) {
+                            try {
+                                val placeName = snap.getValue(SearchDevotionalModel::class.java)
+                                if (placeName != null &&
+                                    placeName.devotional_name!!.lowercase()
+                                        .contains(search.lowercase()) ||
+                                    placeName!!.devotional_city!!.lowercase()
+                                        .contains(search.lowercase()) ||
+                                    placeName.devotional_state!!.lowercase()
+                                        .contains(search.lowercase())
+                                ) {
+                                    searchDevList.add(placeName)
+                                }
+                            } catch (e: Exception) {
+                                e.printStackTrace()
+                            }
                         }
-                    } catch (e: Exception) {
-                        e.printStackTrace()
+                        m.rvSearchDevotional.adapter =
+                            SearchDevotionalAdapter(this@SearchActivity, searchDevList, object :
+                                SearchDevotionalInterface {
+                                override fun onSearchDevClicked(
+                                    model: SearchDevotionalModel,
+                                    position: Int,
+                                ) {
+                                    val i = Intent(
+                                        this@SearchActivity,
+                                        DetailsActivity::class.java
+                                    )
+                                    i.putExtra(config.DEVOTION_ID, model.devPlaceID)
+                                    startActivity(i)
+                                }
+                            })
+                        m.rvSearchDevotional.adapter!!.notifyItemInserted(searchDevList.size - 1)
                     }
                 }
-                m.rvSearchDevotional.adapter = SearchDevotionalAdapter(this@SearchActivity, searchDevList, object :
-                    SearchDevotionalInterface {
-                    override fun onSearchDevClicked(model: SearchDevotionalModel, position: Int) {
-                        val i = Intent(
-                            this@SearchActivity,
-                            DetailsActivity::class.java
-                        )
-                        i.putExtra(config.DEVOTION_ID, model.devPlaceID)
-                        startActivity(i)
-                    }
-                })
-                m.rvSearchDevotional.adapter!!.notifyItemInserted(searchDevList.size - 1)
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -191,41 +211,49 @@ private val config = Configs()
 
         userFood!!.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                searchFoodList.clear()
-                for (snap in snapshot.children) {
-                    try {
-                        val placeName= snap.getValue(SearchFoodModel::class.java)
-                        if (placeName != null &&
-                            placeName.food_name!!.lowercase().contains(search.lowercase()) ||
-                            placeName!!.food_city!!.lowercase().contains(search.lowercase()) ||
-                            placeName.food_state!!.lowercase().contains(search.lowercase())
-                            ){
-                            searchFoodList.add(placeName)
+                if (!isDestroyed && !isFinishing) {
+                    if (snapshot.exists()) {
+                        searchFoodList.clear()
+                        for (snap in snapshot.children) {
+                            try {
+                                val placeName = snap.getValue(SearchFoodModel::class.java)
+                                if (placeName != null &&
+                                    placeName.food_name!!.lowercase()
+                                        .contains(search.lowercase()) ||
+                                    placeName!!.food_city!!.lowercase()
+                                        .contains(search.lowercase()) ||
+                                    placeName.food_state!!.lowercase().contains(search.lowercase())
+                                ) {
+                                    searchFoodList.add(placeName)
+                                }
+                            } catch (e: Exception) {
+                                e.printStackTrace()
+                            }
                         }
-                    } catch (e: Exception) {
-                        e.printStackTrace()
+                        m.rvSearchFood.adapter =
+                            SearchFoodAdapter(this@SearchActivity, searchFoodList, object :
+                                SearchFoodInterface {
+                                override fun onSearchFoodClicked(
+                                    model: SearchFoodModel,
+                                    position: Int,
+                                ) {
+                                    val i = Intent(
+                                        this@SearchActivity,
+                                        DetailsActivity::class.java
+                                    )
+                                    i.putExtra(config.FOOD_ID, model.famFoodID)
+                                    startActivity(i)
+                                }
+                            })
+                        m.rvSearchFood.adapter!!.notifyItemInserted(searchFoodList.size - 1)
                     }
                 }
-                m.rvSearchFood.adapter = SearchFoodAdapter(this@SearchActivity, searchFoodList, object :
-                    SearchFoodInterface {
-                    override fun onSearchFoodClicked(model: SearchFoodModel, position: Int) {
-                        val i = Intent(
-                            this@SearchActivity,
-                            DetailsActivity::class.java
-                        )
-                        i.putExtra(config.FOOD_ID, model.famFoodID)
-                        startActivity(i)
-                    }
-                })
-                m.rvSearchFood.adapter!!.notifyItemInserted(searchFoodList.size - 1)
             }
 
             override fun onCancelled(error: DatabaseError) {
                 Toast.makeText(this@SearchActivity, "Not Found Error", Toast.LENGTH_SHORT).show()
             }
         })
-
     }
-
 
 }

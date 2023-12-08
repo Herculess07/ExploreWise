@@ -53,11 +53,11 @@
                         android:layout_height="wrap_content"
                         android:layout_centerHorizontal="true"
                         android:layout_marginVertical="@dimen/_10sdp"
-                        android:fontFamily="casual"
+                        android:fontFamily="sans-serif"
                         android:text="@string/logo_name"
                         android:textColor="@color/textColorPrimary"
                         android:textFontWeight="700"
-                        android:textSize="25sp" />
+                        android:textSize="@dimen/_24ssp" />
 
                     <!--<androidx.appcompat.widget.SearchView
                         android:id="@+id/homeSearchView"
@@ -82,9 +82,9 @@
                         android:layout_marginVertical="@dimen/_8sdp"
                         android:background="@drawable/search_bar_design"
                         android:hint="@string/search_text"
-                        android:paddingVertical="@dimen/_6sdp"
                         android:paddingHorizontal="@dimen/_25sdp"
-                        android:textSize="@dimen/_15sdp" />
+                        android:paddingVertical="@dimen/_8sdp"
+                        android:textSize="@dimen/_15ssp" />
                 </RelativeLayout>
 
                 <androidx.cardview.widget.CardView
@@ -111,7 +111,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
-
 
                     <include
                         android:id="@+id/rvFood"
@@ -140,15 +139,19 @@
 
         </ScrollView>
 
-        <ProgressBar
+        <com.razzaghimahdi78.dotsloading.linear.LoadingWavy
             android:id="@+id/pbHome"
-            android:layout_width="@dimen/_40sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:visibility="gone"
+            app:dots_color="@color/colorPrimaryDark"
+            app:dots_count="3"
+            app:dots_duration="1000"
+            app:dots_size="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

@@ -41,5 +41,17 @@ open class Validation : AppCompatActivity() {
         }
     }
 
+    fun validatePassword(password: EditText, value: String): Boolean {
+        val regex = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#\$%^&+=])(?=\\S+\$).{8,}\$"
+        // 1 uppercase, 1 lowercase, 1 number, 1 special character, minimum 8 characters
+
+        return if (value.isEmpty() || !value.matches(regex.toRegex())) {
+            password.error = "Invalid password"
+            false
+        } else {
+            true
+        }
+    }
+
 
 }

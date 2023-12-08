@@ -18,7 +18,8 @@ import com.learning.food1.AdapterClass.BookmarkAdapter
 import com.learning.food1.Configs
 import com.learning.food1.Interfaces.BookmarkInterface
 import com.learning.food1.Main.DetailsActivity
-import com.learning.food1.Model.BookmarkedItems
+import com.learning.food1.Model.bookmark.BookmarkedItems
+import com.learning.food1.R
 import com.learning.food1.databinding.FragmentBookmarkBinding
 
 
@@ -32,7 +33,7 @@ class BookmarkFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         m = FragmentBookmarkBinding.inflate(inflater, container, false)
         init()
         return m.root
@@ -46,6 +47,9 @@ class BookmarkFragment : Fragment() {
         bookmarkList = ArrayList()
         initAdapter()
         getBookmarks()
+        m.abBookmark.imgBookmark.visibility = View.GONE
+        m.abBookmark.imgBack.visibility = View.GONE
+        m.abBookmark.txtTitle.text = getString(R.string.bookmarks)
     }
 
 
@@ -85,7 +89,6 @@ class BookmarkFragment : Fragment() {
                                     i.putExtra(config.DEVOTION_ID, model.devPlaceID)
                                     startActivity(i)
                                 }
-
                             })
                         m.rvBookmark.adapter = itemsAdapter
                         itemsAdapter.notifyItemInserted(bookmarkList.size - 1)

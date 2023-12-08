@@ -5,43 +5,48 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import android.view.WindowManager
+import androidx.fragment.app.DialogFragment
 import com.learning.food1.AddFamous.AddDevotionalPlace
 import com.learning.food1.AddFamous.AddFamousFood
 import com.learning.food1.AddFamous.AddFamousPlace
 import com.learning.food1.databinding.FragmentAddBinding
 
 
-class AddFragment : BottomSheetDialogFragment() {
+class AddFragment : DialogFragment() {
 
-    private lateinit var bindingAddFrag: FragmentAddBinding
+    private lateinit var m: FragmentAddBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-
-        bindingAddFrag = FragmentAddBinding.inflate(layoutInflater)
-
-
+        m = FragmentAddBinding.inflate(layoutInflater)
         init()
-        return bindingAddFrag.root
+        return m.root
+    }
 
+    override fun onStart() {
+        super.onStart()
+        dialog?.window?.setLayout(
+            WindowManager.LayoutParams.MATCH_PARENT,
+            WindowManager.LayoutParams.WRAP_CONTENT
+        )
     }
 
 
     private fun init(){
-        bindingAddFrag.llAddFamousFood.setOnClickListener {
+        m.llAddFamousFood.setOnClickListener {
             val intent = Intent(this.requireContext(), AddFamousFood::class.java)
             this.startActivity(intent)
         }
 
-        bindingAddFrag.llAddDevotionalPlace.setOnClickListener {
+        m.llAddDevotionalPlace.setOnClickListener {
             val intent = Intent(this.requireContext(), AddDevotionalPlace::class.java)
             this.startActivity(intent)
         }
 
-        bindingAddFrag.llAddPlace.setOnClickListener {
+        m.llAddPlace.setOnClickListener {
             val intent = Intent(this.requireContext(), AddFamousPlace::class.java)
             this.startActivity(intent)
         }

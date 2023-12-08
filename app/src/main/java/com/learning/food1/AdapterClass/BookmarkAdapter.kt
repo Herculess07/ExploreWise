@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.learning.food1.Configs
 import com.learning.food1.Interfaces.BookmarkInterface
-import com.learning.food1.Model.BookmarkedItems
+import com.learning.food1.Model.bookmark.BookmarkedItems
 import com.learning.food1.R
 
 class BookmarkAdapter(

@@ -52,16 +52,9 @@ class PlacesAdapter(
 
         }
     }
-    
-    val limit = 10
+
     override fun getItemCount(): Int {
-
-        return if (model.size > limit) {
-            limit;
-        } else {
-            model.size;
-        }
-
+        return model.size - 1
     }
 
 }

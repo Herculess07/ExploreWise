@@ -86,22 +86,16 @@ class HomeFragment : Fragment() {
 
             m.rvPlace.txtViewAll.setOnClickListener {
                 replaceFragment(ViewAllFragment(), requireContext())
-
-
             }
 
             initAdapters()
             initSetUpText()
             autoImageSlider()
 
-
-
             m.homeSearchView.setOnClickListener {
                 val intent = Intent(requireContext(), SearchActivity::class.java)
                 startActivity(intent)
             }
-
-
         }
     }
 

@@ -280,8 +280,8 @@
                 <Button
                     android:id="@+id/btnSubmitDevotional"
                     style="@style/button"
-                    android:text="@string/add_devotional_place"
-                    android:textColor="@color/grey" />
+                    android:text="@string/save"
+                    android:textColor="@color/black"  />
 
                 <Button
                     android:id="@+id/btnCancelDevotional"
@@ -295,13 +295,18 @@
 
     </ScrollView>
 
-    <ProgressBar
+    <com.razzaghimahdi78.dotsloading.linear.LoadingWavy
         android:id="@+id/pbDev"
-        android:layout_width="@dimen/_50sdp"
-        android:layout_height="@dimen/_50sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:visibility="gone"
+        app:dots_color="@color/colorPrimaryDark"
+        app:dots_count="3"
+        app:dots_duration="1000"
+        app:dots_size="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

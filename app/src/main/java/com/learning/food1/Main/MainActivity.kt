@@ -6,7 +6,6 @@ import android.util.Log
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatDelegate
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
@@ -88,7 +87,7 @@ class MainActivity : BaseActivity() {
         fragment()
         userPermissionAccess()
         b.imgAdd.setOnClickListener {
-            val bottomSheet: BottomSheetDialogFragment = AddFragment()
+            val bottomSheet = AddFragment()
 
             bottomSheet.show(supportFragmentManager, bottomSheet.tag)
         }
