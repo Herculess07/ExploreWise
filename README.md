@@ -1,4 +1,4 @@
-## Food Explorer App 🗺️🍽️
+## ExploreWise Tour Guide App 🗺️🍽️
 
 This repository contains the source code for a Food Explorer mobile application built with Kotlin and Firebase. 
 
