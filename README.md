@@ -2,7 +2,7 @@
 
 This repository contains the source code for a Food Explorer mobile application built with Kotlin and Firebase. 
 
-### 🏠  Main Activity
+### 🏠  Home Page
 
 *   Serves as the central hub of the app.
 *   Handles user authentication and checks login status.
@@ -14,7 +14,7 @@ This repository contains the source code for a Food Explorer mobile application 
 *   Manages user permissions for camera, storage, and location access.
 *   Provides a confirmation dialog before exiting the app.
 
-### 🔎 Details Activity
+### 🔎 Details Page
 
 *   Displays detailed information about a selected food, place, or devotional site. 
 *   Fetches data from Firebase based on the ID of the selected item.
@@ -22,14 +22,14 @@ This repository contains the source code for a Food Explorer mobile application 
 *   Allows users to bookmark items for later reference.
 *   Provides a back button to return to the previous screen.
 
-### 🔍 Search Activity
+### 🔍 Search Page
 
 *   Enables users to search for food, places, and devotional sites within the app.
 *   Implements a search bar with real-time filtering as the user types.
 *   Displays search results in separate RecyclerView lists for food, places, and devotional sites.
 *   Allows users to click on a search result to view its details in the Details Activity.
 
-### 🛠️ Technical Details
+### 🛠️ Technical Information
 
 *   **Programming Language:** Kotlin
 *   **Framework:** Android SDK
