@@ -3,7 +3,7 @@
 This repository contains the source code for a Food Explorer mobile application built with Kotlin and Firebase. 
 
 ## Screenshots
-![Home Page]([https://i.ibb.co/kKsPnvW/ss1.png] "Image 1")
+![Home Page]([https://i.ibb.co/kKsPnvW/ss1.png])
 
 
 ### 🏠  Home Page
