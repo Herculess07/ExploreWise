@@ -1,16 +1,36 @@
 ## ExploreWise Tour Guide App 🗺️🍽️
 
-This repository contains the source code for a Food Explorer mobile application built with Kotlin and Firebase. 
+This repository contains the source code for a Food Explorer mobile application built with Kotlin and Firebase.
 
 ## Screenshots
-<img src="https://github.com/user-attachments/assets/b1e5d116-327e-4168-bb7d-25a2f8c9f7ab" width="400">
-<img src="https://github.com/user-attachments/assets/3a31e6d1-c802-4c9a-a6db-a8d4f11ed37c" width="400">
 
-<img src="https://github.com/user-attachments/assets/ec4e7ef0-2ee2-4f22-897f-f46a6eeea82e" width="400">
-<img src="https://github.com/user-attachments/assets/97181a95-1097-4009-8fbc-74ee8fcd99ab" width="400">
+<table align="center">
+  <tr>
+    <td align="center" style="padding: 10px;">
+      <img src="https://github.com/user-attachments/assets/b1e5d116-327e-4168-bb7d-25a2f8c9f7ab" width="200">
+    </td>
+    <td align="center" style="padding: 10px;">
+      <img src="https://github.com/user-attachments/assets/3a31e6d1-c802-4c9a-a6db-a8d4f11ed37c" width="200">
+    </td>
+  </tr>
+  <tr>
+    <td align="center" style="padding: 10px;">
+      <img src="https://github.com/user-attachments/assets/ec4e7ef0-2ee2-4f22-897f-f46a6eeea82e" width="200">
+    </td>
+    <td align="center" style="padding: 10px;">
+      <img src="https://github.com/user-attachments/assets/97181a95-1097-4009-8fbc-74ee8fcd99ab" width="200">
+    </td>
+  </tr>
+  <tr>
+    <td align="center" style="padding: 10px;">
+      <img src="https://github.com/user-attachments/assets/e0920465-f67c-4449-9361-1ff6b5602814" width="200">
+    </td>
+    <td align="center" style="padding: 10px;">
+      <img src="https://github.com/user-attachments/assets/35b726ee-9aee-4d0d-8277-f8f19628e6fe" width="200">
+    </td>
+  </tr>
+</table>
 
-<img src="https://github.com/user-attachments/assets/e0920465-f67c-4449-9361-1ff6b5602814" width="400">
-<img src="https://github.com/user-attachments/assets/35b726ee-9aee-4d0d-8277-f8f19628e6fe" width="400">
 
 ### 🏠  Home Page
 
